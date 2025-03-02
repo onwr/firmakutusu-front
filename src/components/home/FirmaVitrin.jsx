@@ -1,5 +1,4 @@
 import React from "react";
-import Hero from "./firma-vitrin/Hero";
 import FirmaList from "./firma-vitrin/FirmaList";
 
 const FirmaVitrin = () => {
