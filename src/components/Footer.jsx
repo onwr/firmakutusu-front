@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="px-2 md:px-0">
-      <div className="container mx-auto mt-10 rounded-t-xl bg-[#1C5540] px-4 sm:px-6 md:px-10 lg:px-20 py-6 sm:py-8 lg:py-10">
+    <div className="px-2 md:px-0 relative mt-20">
+      <div className="container mx-auto  rounded-t-xl bg-[#1C5540] px-4 sm:px-6 md:px-10 lg:px-20 py-6 sm:py-8 lg:py-10">
         <p className="marcellus text-2xl sm:text-3xl lg:text-4xl text-white">
           Keşfedin, Tanıtın ve Büyütün!
         </p>
@@ -118,6 +118,10 @@ const Footer = () => {
           – Heda Teknoloji Bilişim A.Ş. markasıdır. Tüm hakları saklıdır.
         </p>
       </div>
+      <img
+        src="/images/arrow-up.svg"
+        className="top-0 hidden lg:block -translate-y-12 translate-x-1/2 absolute right-1/2"
+      />
     </div>
   );
 };

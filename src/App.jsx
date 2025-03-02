@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import SignIn from "@pages/SignIn";
 import Home from "./pages/Home";
 import Loader from "./layout/Loader";
+import FirmaAra from "./pages/FirmaAra";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -24,6 +25,7 @@ const App = () => {
           <Routes>
             <Route path="/hesap/giris-kayit" element={<SignIn />} />
             <Route path="/" element={<Home />} />
+            <Route path="/firma-ara" element={<FirmaAra />} />
           </Routes>
         </BrowserRouter>
       )}
