@@ -12,8 +12,8 @@ const FirmaAra = () => {
           <h1 className="marcellus md:text-left text-center">Firma Ara</h1>
         </div>
 
-        <div className="container gap-5 mx-auto mt-10 flex">
-          <div className="w-1/4">
+        <div className="container gap-5 mx-auto mt-10 flex lg:flex-row px-2 md:px-0 flex-col">
+          <div className="w-full lg:w-1/4">
             <FirmaFiltre />
           </div>
           <div className="w-full">

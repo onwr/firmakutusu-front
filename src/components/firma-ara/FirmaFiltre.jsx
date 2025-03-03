@@ -46,21 +46,29 @@ const FirmaFiltre = () => {
   };
 
   return (
-    <div className="border border-[#A2ACC7] rounded-[10px] p-6">
+    <div className="border border-[#A2ACC7] rounded-[10px] p-4 md:p-6">
       <div className="flex montserrat items-center gap-2">
-        <img src="/images/icons/filtre.svg" alt="Filtre" />
-        <p className="font-semibold">Aramanızı özelleştirin.</p>
+        <img
+          src="/images/icons/filtre.svg"
+          alt="Filtre"
+          className="w-5 md:w-auto"
+        />
+        <p className="font-semibold text-sm md:text-base">
+          Aramanızı özelleştirin.
+        </p>
       </div>
 
-      <div className="mt-5 flex montserrat flex-col gap-2">
+      <div className="mt-4 md:mt-5 flex montserrat flex-col gap-2">
         <div className="relative">
           <motion.div
-            className="py-2 px-5 rounded-lg border border-[#A2ACC7] flex items-center justify-between cursor-pointer"
+            className="py-2 px-3 md:px-5 rounded-lg border border-[#A2ACC7] flex items-center justify-between cursor-pointer"
             onClick={() => setIsSectorDropdownOpen(!isSectorDropdownOpen)}
           >
             <div className="flex flex-col">
-              <p className="text-sm text-[#232323]">Sektör</p>
-              <p className="text-[#232323] font-medium">{selectedSector}</p>
+              <p className="text-xs md:text-sm text-[#232323]">Sektör</p>
+              <p className="text-[#232323] font-medium text-sm md:text-base">
+                {selectedSector}
+              </p>
             </div>
             <motion.img
               src="/images/icons/down.svg"
@@ -98,12 +106,14 @@ const FirmaFiltre = () => {
 
         <div className="relative">
           <motion.div
-            className="py-2 px-5 rounded-lg border border-[#A2ACC7] flex items-center justify-between cursor-pointer"
+            className="py-2 px-3 md:px-5 rounded-lg border border-[#A2ACC7] flex items-center justify-between cursor-pointer"
             onClick={() => setIsIlDropdownOpen(!isIlDropdownOpen)}
           >
             <div className="flex flex-col">
-              <p className="text-sm text-[#232323]">İl</p>
-              <p className="text-[#232323] font-medium">{selectedIl}</p>
+              <p className="text-xs md:text-sm text-[#232323]">İl</p>
+              <p className="text-[#232323] font-medium text-sm md:text-base">
+                {selectedIl}
+              </p>
             </div>
             <motion.img
               src="/images/icons/down.svg"
@@ -138,12 +148,14 @@ const FirmaFiltre = () => {
 
         <div className="relative">
           <motion.div
-            className="py-2 px-5 rounded-lg border border-[#A2ACC7] flex items-center justify-between cursor-pointer"
+            className="py-2 px-3 md:px-5 rounded-lg border border-[#A2ACC7] flex items-center justify-between cursor-pointer"
             onClick={() => setIsIlceDropdownOpen(!isIlceDropdownOpen)}
           >
             <div className="flex flex-col">
-              <p className="text-sm text-[#232323]">İlçe</p>
-              <p className="text-[#232323] font-medium">{selectedIlce}</p>
+              <p className="text-xs md:text-sm text-[#232323]">İlçe</p>
+              <p className="text-[#232323] font-medium text-sm md:text-base">
+                {selectedIlce}
+              </p>
             </div>
             <motion.img
               src="/images/icons/down.svg"
@@ -179,8 +191,11 @@ const FirmaFiltre = () => {
           </AnimatePresence>
         </div>
 
-        <div className="py-2 px-5 montserrat rounded-lg border border-[#A2ACC7] flex flex-col">
-          <label htmlFor="anahtarKelime" className="text-sm text-[#232323]">
+        <div className="py-2 px-3 md:px-5 montserrat rounded-lg border border-[#A2ACC7] flex flex-col">
+          <label
+            htmlFor="anahtarKelime"
+            className="text-xs md:text-sm text-[#232323]"
+          >
             Anahtar Kelime
           </label>
           <input
@@ -191,12 +206,15 @@ const FirmaFiltre = () => {
           />
         </div>
       </div>
-      <button className="rounded-[10px] w-full mt-5 text-white montserrat font-medium py-2 px-5 duration-300 cursor-pointer hover:bg-[#232323] bg-[#1C5540] border border-[#A2ACC7] flex items-center gap-1 justify-center">
-        Firma Ara <img src="/images/icons/find.svg" alt="" />
+      <button className="rounded-[10px] w-full mt-4 md:mt-5 text-white montserrat font-medium text-sm md:text-base py-2 px-5 duration-300 cursor-pointer hover:bg-[#232323] bg-[#1C5540] border border-[#A2ACC7] flex items-center gap-1 justify-center">
+        Firma Ara{" "}
+        <img src="/images/icons/find.svg" alt="" className="w-4 md:w-auto" />
       </button>
 
-      <p className="font-semibold montserrat mt-8">Metin Başlığı</p>
-      <p className="text-xs text-[#232323]">
+      <p className="font-semibold montserrat mt-6 md:mt-8 text-sm md:text-base">
+        Metin Başlığı
+      </p>
+      <p className="text-xs md:text-sm text-[#232323]">
         Finanskent Mahallesi Finans Caddesi No:42/1 34760 Ümraniye/İSTANBUL
         Finanskent Maha..Finanskent Mahallesi Finans Caddesi No:42/1 34760
         Ümraniye/İSTANBUL Finanskent Maha..Finanskent Mahallesi Finans Caddesi
