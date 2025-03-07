@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Destek = () => {
+const Destek = ({ about, home }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedType, setSelectedType] = useState("Sponsorluk Başvurusu");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -31,10 +31,8 @@ const Destek = () => {
   };
 
   const formatPhoneNumber = (value) => {
-    // Remove all non-digit characters
     const phoneNumber = value.replace(/\D/g, "");
 
-    // Format the number as (5XX) XXX XX XX
     if (phoneNumber.length <= 10) {
       return phoneNumber.replace(
         /^(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2}).*/,
@@ -65,11 +63,13 @@ const Destek = () => {
 
   return (
     <div className="mt-6 md:mt-10 montserrat px-4 sm:px-6 md:px-0 container mx-auto">
-      <img
-        src="/images/icons/destek.svg"
-        className="w-full md:block hidden"
-        alt="Destek Banner"
-      />
+      {home && (
+        <img
+          src="/images/icons/destek.svg"
+          className="w-full md:block hidden"
+          alt="Destek Banner"
+        />
+      )}
 
       <div className="mt-8 p-4 sm:p-6 md:p-8 lg:p-14 bg-[#F1EEE6] rounded-xl flex flex-col lg:flex-row">
         <div className="w-full montserrat">

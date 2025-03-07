@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const SSS = () => {
+const SSS = ({ home, about }) => {
   const [openQuestion, setOpenQuestion] = useState(null);
 
   const questions = [
@@ -20,11 +20,20 @@ const SSS = () => {
 
   return (
     <div className="mt-8 md:mt-10 container mx-auto px-2 md:px-0">
-      <img
-        src="/images/icons/sss.svg"
-        className="w-full hidden md:block"
-        alt="Sıkça Sorulan Sorular"
-      />
+      {home && (
+        <img
+          src="/images/icons/sss.svg"
+          className="w-full hidden md:block"
+          alt="Sıkça Sorulan Sorular"
+        />
+      )}
+
+      {about && (
+        <p className="mt-2 md:mt-8 text-center montserrat md:text-left text-[#232323] text-lg md:text-xl">
+          Platformumuzu nasıl kullanacağınızı öğrenmek ve tüm özellikleri
+          keşfetmek için tanıtım videolarımızı izleyin.
+        </p>
+      )}
 
       <div className="flex flex-col mt-5 gap-2">
         {questions.map((item) => (

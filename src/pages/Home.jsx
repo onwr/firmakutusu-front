@@ -20,10 +20,10 @@ const Home = () => {
       <FirmaVitrin />
       <Bilgi />
       <Sponsorlarimiz />
-      <SSS />
+      <SSS home={true} />
       <Medya />
       <Blog />
-      <Destek />
+      <Destek home={true} />
       <Footer />
     </div>
   );
