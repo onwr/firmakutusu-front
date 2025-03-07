@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Loader from "./layout/Loader";
 import FirmaAra from "./pages/FirmaAra";
 import FirmaProfil from "./pages/FirmaProfil";
+import Paketler from "./pages/Paketler";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -27,7 +28,8 @@ const App = () => {
             <Route path="/hesap/giris-kayit" element={<SignIn />} />
             <Route path="/" element={<Home />} />
             <Route path="/firma-ara" element={<FirmaAra />} />
-            <Route path="/firma-profil" element={<FirmaProfil />} /> 
+            <Route path="/firma-profil" element={<FirmaProfil />} />
+            <Route path="/paketler" element={<Paketler />} />
           </Routes>
         </BrowserRouter>
       )}
