@@ -44,7 +44,7 @@ const Hakkimizda = () => {
     <div>
       <Header />
 
-      <div className="px-4 md:px-0">
+      <div className="px-2 md:px-0">
         <motion.div
           className="container mt-5 md:mt-10 mx-auto bg-[#CED4DA] rounded-lg py-3 px-6"
           initial={{ opacity: 0, y: -20 }}

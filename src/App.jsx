@@ -8,6 +8,7 @@ import FirmaAra from "./pages/FirmaAra";
 import FirmaProfil from "./pages/FirmaProfil";
 import Paketler from "./pages/Paketler";
 import Hakkimizda from "./pages/Hakkimizda";
+import Blog from "./pages/Blog";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/firma-profil" element={<FirmaProfil />} />
             <Route path="/paketler" element={<Paketler />} />
             <Route path="/hakkimizda" element={<Hakkimizda />} />
+            <Route path="/blog" element={<Blog />} />
           </Routes>
         </BrowserRouter>
       )}
