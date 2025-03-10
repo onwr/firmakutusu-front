@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
+import { useAuth } from "../context/AuthContext";
 
 const Header = () => {
+  const { isLogin, user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -11,94 +14,263 @@ const Header = () => {
 
   const navItems = [
     { icon: "/images/icons/nav/anasayfa.svg", text: "Anasayfa", link: "/" },
-    { icon: "/images/icons/nav/firmaara.png", text: "Firma Ara", link: "/firma-ara" },
-    { icon: "/images/icons/nav/sponsorluk.png", text: "Sponsorluk", link: "/sponsorluk" },
-    { icon: "/images/icons/nav/paketler.png", text: "Paketler", link: "/paketler" },
-    { icon: "/images/icons/nav/hakkimizda.png", text: "Hakkımızda", link: "/hakkimizda" },
+    {
+      icon: "/images/icons/nav/firmaara.png",
+      text: "Firma Ara",
+      link: "/firma-ara",
+    },
+    {
+      icon: "/images/icons/nav/sponsorluk.png",
+      text: "Sponsorluk",
+      link: "/sponsorluk",
+    },
+    {
+      icon: "/images/icons/nav/paketler.png",
+      text: "Paketler",
+      link: "/paketler",
+    },
+    {
+      icon: "/images/icons/nav/hakkimizda.png",
+      text: "Hakkımızda",
+      link: "/hakkimizda",
+    },
     { icon: "/images/icons/nav/blog.svg", text: "Blog", link: "/blog" },
     { icon: "/images/icons/nav/destek.svg", text: "Destek", link: "/destek" },
   ];
+
+  const UserNavItems = [
+    {
+      icon: "/images/icons/nav/firmaara.png",
+      text: "Firma Ara",
+      link: "/firma-ara",
+    },
+    {
+      icon: "/images/icons/nav/favoriler.svg",
+      text: "Favorilerim",
+      link: "/hesap/favorilerim",
+    },
+    {
+      icon: "/images/icons/nav/sponsorluk.png",
+      text: "Sponsorluk",
+      link: "/sponsorluk",
+    },
+    {
+      icon: "/images/icons/nav/paketler.png",
+      text: "Paketlerim",
+      link: "/hesap/paketlerim",
+    },
+    {
+      icon: "/images/icons/nav/blog.svg",
+      text: "FK Blog",
+      link: "/blog",
+    },
+    {
+      icon: "/images/icons/nav/mesajlar.svg",
+      text: "Mesajlarım",
+      link: "/hesap/mesajlarim",
+    },
+    {
+      icon: "/images/icons/nav/bildirimler.svg",
+      text: "Bildirimler",
+      link: "/hesap/bildirimler",
+    },
+    {
+      icon: "/images/icons/nav/destek.svg",
+      text: "Destek",
+      link: "/destek",
+    },
+    {
+      icon: "/images/icons/nav/profil.svg",
+      text: "Profilim",
+      link: "/hesap/profil",
+    },
+    {
+      icon: "/images/icons/nav/faturalar.svg",
+      text: "Faturalarım",
+      link: "/hesap/faturalarim",
+    },
+    {
+      icon: "/images/icons/nav/ayarlar.svg",
+      text: "Ayarlarım",
+      link: "/hesap/ayarlar",
+    },
+  ];
+
+  const renderAuthButtons = () => {
+    if (isLogin && user) {
+      return (
+        <div className="relative w-full flex gap-2">
+          <img
+            src="/images/icons/firma-profil/firma-logo.svg"
+            className="size-16 rounded-full border border-[#01A4BD]"
+          />
+          <div className="flex pr-3 flex-col gap-0">
+            <p className="font-semibold text-[13px] text-[#232323] montserrat">
+              {user.name}
+            </p>
+            <p className="text-[10px] line-clamp-3 max-w-40 text-[#232323] uppercase montserrat">
+              {user.firma.firmaAd}
+            </p>
+          </div>
+          <div className=" flex-col gap-1 flex border-l border-[#45535E] pl-3">
+            <button onClick={() => logout()}>
+              <img
+                src="/images/icons/nav/off-power.svg"
+                className="cursor-pointer hover:scale-105 duration-300"
+              />
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="flex w-full gap-2">
+        <motion.a
+          href="/hesap/giris-kayit"
+          className="text-sm cursor-pointer w-full hover:bg-[#1C5540]/20 duration-300 font-semibold text-[#1C5540] bg-[#F1EEE6] h-12 px-3 rounded-lg flex items-center justify-center gap-1"
+        >
+          <img src="/images/icons/kayit.svg" alt="Register" />
+          Üye Ol
+        </motion.a>
+        <motion.a
+          href="/hesap/giris-kayit"
+          className="text-sm font-semibold w-full text-white hover:bg-black/80 duration-300 bg-[#1C5540] h-12 px-3 rounded-lg flex items-center justify-center gap-1"
+        >
+          <img src="/images/icons/power.png" alt="Login" />
+          Giriş
+        </motion.a>
+      </div>
+    );
+  };
 
   return (
     <div className="container mx-auto py-5 px-4 md:px-0">
       <div className="flex items-center justify-between">
         <motion.a
           href="/"
-          className="w-40 md:w-1/4 xl:w-1/5"
+          className={`w-40 ${user || isLogin ? "md:w-auto" : "md:w-1/6"}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <img src="/images/logo.svg" alt="Logo" className="max-w-full" />
+          {!isLogin || !user ? (
+            <img src="/images/logo.svg" alt="Logo" className="max-w-full" />
+          ) : (
+            <img
+              src="/images/icons/nav/logokare.svg"
+              alt="Logo"
+              className="max-w-full"
+            />
+          )}
         </motion.a>
 
-        <div className="hidden xl:flex w-3/5 marcellus items-center justify-center gap-8">
-          {navItems.map((item, index) => (
-            <motion.a
-              key={index}
-              href={item.link}
-              className="flex flex-col items-center cursor-pointer"
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-              whileHover={{ scale: 1.1 }}
-            >
-              <img src={item.icon} alt={item.text} />
-              <p className="text-[#1C5540] mt-1">{item.text}</p>
-            </motion.a>
-          ))}
+        <div
+          className={`hidden xl:flex ${
+            isLogin || user ? " w-3/4" : "w-3/5"
+          } marcellus items-center justify-center gap-5 2xl:gap-6`}
+        >
+          {!user ? (
+            <>
+              {navItems.map((item, index) => (
+                <motion.a
+                  key={index}
+                  href={item.link}
+                  className="flex flex-col items-center cursor-pointer"
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <img src={item.icon} alt={item.text} />
+                  <p className="text-[#1C5540] mt-1">{item.text}</p>
+                </motion.a>
+              ))}
+            </>
+          ) : (
+            <>
+              {UserNavItems.map((item, index) => (
+                <motion.a
+                  key={index}
+                  href={item.link}
+                  className="flex flex-col items-center cursor-pointer"
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <img src={item.icon} alt={item.text} />
+                  <p className="text-[#1C5540] text-xs 2xl:text-sm font-bold mt-1">
+                    {item.text}
+                  </p>
+                </motion.a>
+              ))}
+            </>
+          )}
         </div>
 
         <motion.div
-          className="hidden xl:flex w-1/5 montserrat items-start justify-end gap-2"
+          className={`hidden xl:flex ${
+            user || isLogin ? "w-1/5" : "w-1/5"
+          }  montserrat items-start justify-end gap-2`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <button className="mr-2">
-            <img src="/images/icons/nav/notification.svg" alt="Notification" />
-          </button>
-          <div className="flex w-full gap-2">
-            <motion.a href="/hesap/giris-kayit" className="text-sm cursor-pointer w-full hover:bg-[#1C5540]/20 duration-300 font-semibold text-[#1C5540] bg-[#F1EEE6] h-12 px-3 rounded-lg flex items-center justify-center gap-1">
-              <img src="/images/icons/kayit.svg" alt="Register" />
-              Üye Ol
-            </motion.a>
-            <motion.a href="/hesap/giris-kayit" className="text-sm font-semibold w-full text-white hover:bg-black/80 duration-300 bg-[#1C5540] h-12 px-3 rounded-lg flex items-center justify-center gap-1">
-              <img src="/images/icons/power.png" alt="Login" />
-              Giriş
-            </motion.a>
-          </div>
+          {renderAuthButtons()}
         </motion.div>
 
-        <motion.div
-          className="hidden md:flex xl:hidden items-center gap-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <button className="p-2 hover:bg-gray-100 rounded-full">
-            <img
-              src="/images/icons/nav/notification.svg"
-              alt="Notification"
-              className="w-5 h-5"
-            />
-          </button>
-          <motion.a
-            href="/hesap/giris-kayit"
-            className="text-sm cursor-pointer hover:bg-[#1C5540]/80 duration-300 font-semibold text-[#1C5540] bg-[#F1EEE6] h-10 px-3 rounded-lg flex items-center justify-center"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Üye Ol
-          </motion.a>
-          <motion.a
-            href="/hesap/giris-kayit"
-            className="text-sm font-semibold text-white bg-[#1C5540] h-10 px-3 rounded-lg flex items-center justify-center"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Giriş
-          </motion.a>
+        <motion.div className="hidden bg md:flex xl:hidden items-center gap-3">
+          {isLogin && user ? (
+            <motion.button
+              onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+              className="flex items-center gap-2 text-white px-3 py-2 rounded-lg"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="relative w-full flex gap-2">
+                <img
+                  src="/images/icons/firma-profil/firma-logo.svg"
+                  className="size-16 rounded-full border border-[#01A4BD]"
+                />
+                <div className="flex pr-3 flex-col gap-0">
+                  <p className="font-semibold text-[13px] text-[#232323] montserrat">
+                    {user.name}
+                  </p>
+                  <p className="text-[10px] line-clamp-3 max-w-40 text-[#232323] uppercase montserrat">
+                    {user.firma.firmaAd}
+                  </p>
+                </div>
+                <div className=" flex-col gap-1 flex border-l border-[#45535E] pl-3">
+                  <button onClick={() => logout()}>
+                    <img
+                      src="/images/icons/nav/off-power.svg"
+                      className="cursor-pointer hover:scale-105 duration-300"
+                    />
+                  </button>
+                </div>
+              </div>
+            </motion.button>
+          ) : (
+            <>
+              <motion.a
+                href="/hesap/giris-kayit"
+                className="text-sm cursor-pointer hover:bg-[#1C5540]/80 duration-300 font-semibold text-[#1C5540] bg-[#F1EEE6] h-10 px-3 rounded-lg flex items-center justify-center"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Üye Ol
+              </motion.a>
+              <motion.a
+                href="/hesap/giris-kayit"
+                className="text-sm font-semibold text-white bg-[#1C5540] h-10 px-3 rounded-lg flex items-center justify-center"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Giriş
+              </motion.a>
+            </>
+          )}
         </motion.div>
 
         <motion.button
@@ -126,47 +298,109 @@ const Header = () => {
             transition={{ duration: 0.3 }}
           >
             <motion.div className="flex flex-col gap-4">
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={index}
-                  href={item.link}
-                  className="flex items-center gap-3 p-3 hover:bg-[#F1EEE6] rounded-md cursor-pointer"
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ x: 5 }}
-                >
-                  <img src={item.icon} alt={item.text} className="w-6 h-6" />
-                  <p className="text-[#1C5540] font-medium">{item.text}</p>
-                </motion.a>
-              ))}
-              <div className="md:hidden pt-4 border-t border-gray-200 mt-2 flex gap-2">
-                <motion.a
-                  href="/hesap/giris-kayit"
-                  className="w-full text-sm cursor-pointer hover:bg-[#1C5540] duration-300 font-semibold text-[#1C5540] bg-[#F1EEE6] h-12 rounded-lg flex items-center justify-center gap-1"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <img
-                    src="/images/icons/kayit.svg"
-                    alt="Register"
-                    className="w-5 h-5"
-                  />
-                  Üye Ol
-                </motion.a>
-                <motion.a
-                  href="/hesap/giris-kayit"
-                  className="w-full text-sm font-semibold text-white bg-[#1C5540] h-12 rounded-lg flex items-center justify-center gap-1"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <img
-                    src="/images/icons/power.png"
-                    alt="Login"
-                    className="w-5 h-5"
-                  />
-                  Giriş
-                </motion.a>
+              {!isLogin || !user ? (
+                <>
+                  {navItems.map((item, index) => (
+                    <motion.a
+                      key={index}
+                      href={item.link}
+                      className="flex items-center gap-3 p-3 hover:bg-[#F1EEE6] rounded-md cursor-pointer"
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: index * 0.05 }}
+                      whileHover={{ x: 5 }}
+                    >
+                      <img
+                        src={item.icon}
+                        alt={item.text}
+                        className="w-6 h-6"
+                      />
+                      <p className="text-[#1C5540] font-medium">{item.text}</p>
+                    </motion.a>
+                  ))}
+                </>
+              ) : (
+                <>
+                  {UserNavItems.map((item, index) => (
+                    <motion.a
+                      key={index}
+                      href={item.link}
+                      className="flex items-center gap-3 p-3 hover:bg-[#F1EEE6] rounded-md cursor-pointer"
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: index * 0.05 }}
+                      whileHover={{ x: 5 }}
+                    >
+                      <img
+                        src={item.icon}
+                        alt={item.text}
+                        className="w-6 h-6"
+                      />
+                      <p className="text-[#1C5540] font-bold">{item.text}</p>
+                    </motion.a>
+                  ))}
+                </>
+              )}
+
+              <div className="md:hidden pt-4 border-t border-gray-200 mt-2">
+                {isLogin && user ? (
+                  <motion.div
+                    className="flex items-center gap-2 bg-[#1C5540]/10 text-white px-4 py-3 rounded-lg"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <div className="relative w-full flex gap-2">
+                      <img
+                        src="/images/icons/firma-profil/firma-logo.svg"
+                        className="size-16 rounded-full border border-[#01A4BD]"
+                      />
+                      <div className="flex pr-3 flex-col gap-0">
+                        <p className="font-semibold text-[13px] text-[#232323] montserrat">
+                          {user.name}
+                        </p>
+                        <p className="text-[10px] line-clamp-3 max-w-40 text-[#232323] uppercase montserrat">
+                          {user.firma.firmaAd}
+                        </p>
+                      </div>
+                      <div className=" flex-col gap-1 flex border-l border-[#45535E] pl-3">
+                        <button onClick={() => logout()}>
+                          <img
+                            src="/images/icons/nav/off-power.svg"
+                            className="cursor-pointer hover:scale-105 duration-300"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                ) : (
+                  <div className="flex gap-2">
+                    <motion.a
+                      href="/hesap/giris-kayit"
+                      className="w-full text-sm cursor-pointer hover:bg-[#1C5540] duration-300 font-semibold text-[#1C5540] bg-[#F1EEE6] h-12 rounded-lg flex items-center justify-center gap-1"
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                    >
+                      <img
+                        src="/images/icons/kayit.svg"
+                        alt="Register"
+                        className="w-5 h-5"
+                      />
+                      Üye Ol
+                    </motion.a>
+                    <motion.a
+                      href="/hesap/giris-kayit"
+                      className="w-full text-sm font-semibold text-white bg-[#1C5540] h-12 rounded-lg flex items-center justify-center gap-1"
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                    >
+                      <img
+                        src="/images/icons/power.png"
+                        alt="Login"
+                        className="w-5 h-5"
+                      />
+                      Giriş
+                    </motion.a>
+                  </div>
+                )}
               </div>
             </motion.div>
           </motion.div>

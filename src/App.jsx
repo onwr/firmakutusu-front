@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import SignIn from "@pages/SignIn";
 import Home from "./pages/Home";
@@ -11,6 +11,18 @@ import Hakkimizda from "./pages/Hakkimizda";
 import Blog from "./pages/Blog";
 import Destek from "./pages/Destek";
 import Sponsorluk from "./pages/Sponsorluk";
+import Dogrulama from "./pages/auth/Dogrulama";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import MainLayout from "./layouts/MainLayout";
+
+const ProtectedRoute = ({ children }) => {
+  const { loading, isLogin, user } = useAuth();
+
+  if (loading) return null;
+  if (!isLogin || !user) return <Navigate to="/hesap/giris-kayit" replace />;
+
+  return children;
+};
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -27,20 +39,31 @@ const App = () => {
     <>
       <AnimatePresence mode="wait">{loading && <Loader />}</AnimatePresence>
       {!loading && (
-        <BrowserRouter>
-          <Routes>
-            <Route path="/hesap/giris-kayit" element={<SignIn />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/firma-ara" element={<FirmaAra />} />
-            <Route path="/firma-profil" element={<FirmaProfil />} />
-            <Route path="/paketler" element={<Paketler />} />
-            <Route path="/hakkimizda" element={<Hakkimizda />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/destek" element={<Destek />} />
-            <Route path="/sponsorluk" element={<Sponsorluk />} />
-
-          </Routes>
-        </BrowserRouter>
+        <AuthProvider>
+          <MainLayout>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/hesap/giris-kayit" element={<SignIn />} />
+                <Route
+                  path="/hesap/dogrula"
+                  element={
+                    <ProtectedRoute>
+                      <Dogrulama />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="/" element={<Home />} />
+                <Route path="/firma-ara" element={<FirmaAra />} />
+                <Route path="/firma-profil" element={<FirmaProfil />} />
+                <Route path="/paketler" element={<Paketler />} />
+                <Route path="/hakkimizda" element={<Hakkimizda />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/destek" element={<Destek />} />
+                <Route path="/sponsorluk" element={<Sponsorluk />} />
+              </Routes>
+            </BrowserRouter>
+          </MainLayout>
+        </AuthProvider>
       )}
     </>
   );

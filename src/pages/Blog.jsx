@@ -132,7 +132,6 @@ const Blog = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 px-2 md:px-0"
             variants={containerVariants}
           >
-            {/* Repeat this card structure 3 times */}
             <motion.div
               variants={cardVariants}
               whileHover="hover"
