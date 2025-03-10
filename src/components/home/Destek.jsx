@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Destek = ({ about, home }) => {
+const Destek = ({ home, sub }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedType, setSelectedType] = useState("Sponsorluk Başvurusu");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -62,7 +62,7 @@ const Destek = ({ about, home }) => {
   };
 
   return (
-    <div className="mt-6 md:mt-10 montserrat px-4 sm:px-6 md:px-0 container mx-auto">
+    <div className={`mt-6 md:mt-10 ${sub ? "px-0" : "px-2"} md:px-0 montserrat container mx-auto`}>
       {home && (
         <img
           src="/images/icons/destek.svg"
@@ -129,7 +129,7 @@ const Destek = ({ about, home }) => {
                 type="button"
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="px-4 sm:px-5 bg-white w-full shadow-xl rounded-lg h-[50px] sm:h-[60px] flex items-center justify-between"
+                className="px-4 sm:px-5 bg-white w-full lg:shadow-xl rounded-lg h-[50px] sm:h-[60px] flex items-center justify-between"
               >
                 <div className="flex flex-col items-start">
                   <p className="text-xs sm:text-sm text-[#1C5540]">
@@ -151,7 +151,7 @@ const Destek = ({ about, home }) => {
               <AnimatePresence>
                 {isDropdownOpen && (
                   <motion.div
-                    className="absolute w-full mt-1 bg-white rounded-lg shadow-lg z-50 py-2 max-h-60 overflow-y-auto"
+                    className="absolute w-full mt-1 bg-white rounded-lg lg:shadow-lg z-50 py-2 max-h-60 overflow-y-auto"
                     variants={dropdownVariants}
                     initial="hidden"
                     animate="visible"
@@ -176,7 +176,7 @@ const Destek = ({ about, home }) => {
               </AnimatePresence>
             </div>
 
-            <div className="px-4 sm:px-5 bg-white w-full rounded-lg shadow-xl h-[50px] sm:h-[60px] flex flex-col justify-center gap-0 sm:col-span-1">
+            <div className="px-4 sm:px-5 bg-white w-full rounded-lg lg:shadow-xl h-[50px] sm:h-[60px] flex flex-col justify-center gap-0 sm:col-span-1">
               <label
                 htmlFor="adsoyad"
                 className="text-[#1C5540] text-xs sm:text-sm"
@@ -191,7 +191,7 @@ const Destek = ({ about, home }) => {
               />
             </div>
 
-            <div className="px-4 sm:px-5 bg-white w-full shadow-xl rounded-lg h-[50px] sm:h-[60px] flex flex-col justify-center gap-0 sm:col-span-1">
+            <div className="px-4 sm:px-5 bg-white w-full lg:shadow-xl rounded-lg h-[50px] sm:h-[60px] flex flex-col justify-center gap-0 sm:col-span-1">
               <label
                 htmlFor="email"
                 className="text-[#1C5540] text-xs sm:text-sm"
@@ -206,7 +206,7 @@ const Destek = ({ about, home }) => {
               />
             </div>
 
-            <div className="px-4 sm:px-5 bg-white w-full shadow-xl rounded-lg h-[50px] sm:h-[60px] flex flex-col justify-center gap-0 sm:col-span-1">
+            <div className="px-4 sm:px-5 bg-white w-full lg:shadow-xl rounded-lg h-[50px] sm:h-[60px] flex flex-col justify-center gap-0 sm:col-span-1">
               <label
                 htmlFor="tel"
                 className="text-[#1C5540] text-xs sm:text-sm"

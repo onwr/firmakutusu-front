@@ -9,6 +9,8 @@ import FirmaProfil from "./pages/FirmaProfil";
 import Paketler from "./pages/Paketler";
 import Hakkimizda from "./pages/Hakkimizda";
 import Blog from "./pages/Blog";
+import Destek from "./pages/Destek";
+import Sponsorluk from "./pages/Sponsorluk";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -34,6 +36,9 @@ const App = () => {
             <Route path="/paketler" element={<Paketler />} />
             <Route path="/hakkimizda" element={<Hakkimizda />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/destek" element={<Destek />} />
+            <Route path="/sponsorluk" element={<Sponsorluk />} />
+
           </Routes>
         </BrowserRouter>
       )}

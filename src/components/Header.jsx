@@ -10,33 +10,33 @@ const Header = () => {
   };
 
   const navItems = [
-    { icon: "/images/icons/nav/anasayfa.svg", text: "Anasayfa" },
-    { icon: "/images/icons/nav/firmaara.png", text: "Firma Ara" },
-    { icon: "/images/icons/nav/sponsorluk.png", text: "Sponsorluk" },
-    { icon: "/images/icons/nav/paketler.png", text: "Paketler" },
-    { icon: "/images/icons/nav/hakkimizda.png", text: "Hakkımızda" },
-    { icon: "/images/icons/nav/blog.svg", text: "Blog" },
-    { icon: "/images/icons/nav/destek.svg", text: "Destek" },
+    { icon: "/images/icons/nav/anasayfa.svg", text: "Anasayfa", link: "/" },
+    { icon: "/images/icons/nav/firmaara.png", text: "Firma Ara", link: "/firma-ara" },
+    { icon: "/images/icons/nav/sponsorluk.png", text: "Sponsorluk", link: "/sponsorluk" },
+    { icon: "/images/icons/nav/paketler.png", text: "Paketler", link: "/paketler" },
+    { icon: "/images/icons/nav/hakkimizda.png", text: "Hakkımızda", link: "/hakkimizda" },
+    { icon: "/images/icons/nav/blog.svg", text: "Blog", link: "/blog" },
+    { icon: "/images/icons/nav/destek.svg", text: "Destek", link: "/destek" },
   ];
 
   return (
     <div className="container mx-auto py-5 px-4 md:px-0">
       <div className="flex items-center justify-between">
-        {/* Logo */}
-        <motion.div
+        <motion.a
+          href="/"
           className="w-40 md:w-1/4 xl:w-1/5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
           <img src="/images/logo.svg" alt="Logo" className="max-w-full" />
-        </motion.div>
+        </motion.a>
 
-        {/* Desktop Menu - Only show on XL screens and above */}
         <div className="hidden xl:flex w-3/5 marcellus items-center justify-center gap-8">
           {navItems.map((item, index) => (
             <motion.a
               key={index}
+              href={item.link}
               className="flex flex-col items-center cursor-pointer"
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -59,18 +59,17 @@ const Header = () => {
             <img src="/images/icons/nav/notification.svg" alt="Notification" />
           </button>
           <div className="flex w-full gap-2">
-            <motion.button className="text-sm cursor-pointer w-full hover:bg-[#1C5540]/40 duration-300 font-semibold text-[#1C5540] bg-[#F1EEE6] h-12 px-3 rounded-lg flex items-center justify-center gap-1">
+            <motion.a href="/hesap/giris-kayit" className="text-sm cursor-pointer w-full hover:bg-[#1C5540]/20 duration-300 font-semibold text-[#1C5540] bg-[#F1EEE6] h-12 px-3 rounded-lg flex items-center justify-center gap-1">
               <img src="/images/icons/kayit.svg" alt="Register" />
               Üye Ol
-            </motion.button>
-            <motion.button className="text-sm font-semibold w-full text-white bg-[#1C5540] h-12 px-3 rounded-lg flex items-center justify-center gap-1">
+            </motion.a>
+            <motion.a href="/hesap/giris-kayit" className="text-sm font-semibold w-full text-white hover:bg-black/80 duration-300 bg-[#1C5540] h-12 px-3 rounded-lg flex items-center justify-center gap-1">
               <img src="/images/icons/power.png" alt="Login" />
               Giriş
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
 
-        {/* Compact Buttons for MD-LG screens */}
         <motion.div
           className="hidden md:flex xl:hidden items-center gap-3"
           initial={{ opacity: 0 }}
@@ -84,23 +83,24 @@ const Header = () => {
               className="w-5 h-5"
             />
           </button>
-          <motion.button
-            className="text-sm cursor-pointer hover:bg-[#1C5540]/40 duration-300 font-semibold text-[#1C5540] bg-[#F1EEE6] h-10 px-3 rounded-lg flex items-center justify-center"
+          <motion.a
+            href="/hesap/giris-kayit"
+            className="text-sm cursor-pointer hover:bg-[#1C5540]/80 duration-300 font-semibold text-[#1C5540] bg-[#F1EEE6] h-10 px-3 rounded-lg flex items-center justify-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             Üye Ol
-          </motion.button>
-          <motion.button
+          </motion.a>
+          <motion.a
+            href="/hesap/giris-kayit"
             className="text-sm font-semibold text-white bg-[#1C5540] h-10 px-3 rounded-lg flex items-center justify-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             Giriş
-          </motion.button>
+          </motion.a>
         </motion.div>
 
-        {/* Hamburger Menu Button - Mobile and Tablet */}
         <motion.button
           className="xl:hidden text-[#1C5540] p-2 hover:bg-gray-100 rounded-full"
           onClick={toggleMenu}
@@ -116,7 +116,6 @@ const Header = () => {
         </motion.button>
       </div>
 
-      {/* Mobile/Tablet Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -130,6 +129,7 @@ const Header = () => {
               {navItems.map((item, index) => (
                 <motion.a
                   key={index}
+                  href={item.link}
                   className="flex items-center gap-3 p-3 hover:bg-[#F1EEE6] rounded-md cursor-pointer"
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
@@ -141,8 +141,9 @@ const Header = () => {
                 </motion.a>
               ))}
               <div className="md:hidden pt-4 border-t border-gray-200 mt-2 flex gap-2">
-                <motion.button
-                  className="w-full text-sm cursor-pointer hover:bg-[#1C5540]/40 duration-300 font-semibold text-[#1C5540] bg-[#F1EEE6] h-12 rounded-lg flex items-center justify-center gap-1"
+                <motion.a
+                  href="/hesap/giris-kayit"
+                  className="w-full text-sm cursor-pointer hover:bg-[#1C5540] duration-300 font-semibold text-[#1C5540] bg-[#F1EEE6] h-12 rounded-lg flex items-center justify-center gap-1"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
@@ -152,8 +153,9 @@ const Header = () => {
                     className="w-5 h-5"
                   />
                   Üye Ol
-                </motion.button>
-                <motion.button
+                </motion.a>
+                <motion.a
+                  href="/hesap/giris-kayit"
                   className="w-full text-sm font-semibold text-white bg-[#1C5540] h-12 rounded-lg flex items-center justify-center gap-1"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
@@ -164,7 +166,7 @@ const Header = () => {
                     className="w-5 h-5"
                   />
                   Giriş
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
           </motion.div>
