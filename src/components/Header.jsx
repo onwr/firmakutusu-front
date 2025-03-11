@@ -222,35 +222,45 @@ const Header = () => {
 
         <motion.div className="hidden bg md:flex xl:hidden items-center gap-3">
           {isLogin && user ? (
-            <motion.button
-              onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
-              className="flex items-center gap-2 text-white px-3 py-2 rounded-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className="relative w-full flex gap-2">
+            <div className="relative">
+              <motion.div
+                onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                className="flex items-center gap-2 bg-[#1C5540] text-white px-4 py-2 rounded-lg cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <img
-                  src="/images/icons/firma-profil/firma-logo.svg"
-                  className="size-16 rounded-full border border-[#01A4BD]"
+                  src={user.avatar || "/images/icons/default-avatar.svg"}
+                  className="w-8 h-8 rounded-full"
+                  alt="Profile"
                 />
-                <div className="flex pr-3 flex-col gap-0">
-                  <p className="font-semibold text-[13px] text-[#232323] montserrat">
-                    {user.name}
-                  </p>
-                  <p className="text-[10px] line-clamp-3 max-w-40 text-[#232323] uppercase montserrat">
-                    {user.firma.firmaAd}
-                  </p>
-                </div>
-                <div className=" flex-col gap-1 flex border-l border-[#45535E] pl-3">
-                  <button onClick={() => logout()}>
-                    <img
-                      src="/images/icons/nav/off-power.svg"
-                      className="cursor-pointer hover:scale-105 duration-300"
-                    />
-                  </button>
-                </div>
-              </div>
-            </motion.button>
+                <span className="font-medium">{user.name}</span>
+              </motion.div>
+
+              <AnimatePresence>
+                {isProfileMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
+                  >
+                    <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
+                      Profilim
+                    </div>
+                    <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
+                      Firma Profilim
+                    </div>
+                    <div
+                      onClick={logout}
+                      className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 cursor-pointer"
+                    >
+                      Çıkış Yap
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           ) : (
             <>
               <motion.a
