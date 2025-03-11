@@ -14,6 +14,7 @@ import Sponsorluk from "./pages/Sponsorluk";
 import Dogrulama from "./pages/auth/Dogrulama";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import MainLayout from "./layouts/MainLayout";
+import Profil from "./pages/panel/Profil";
 
 const ProtectedRoute = ({ children }) => {
   const { loading, isLogin, user } = useAuth();
@@ -49,6 +50,14 @@ const App = () => {
                   element={
                     <ProtectedRoute>
                       <Dogrulama />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/hesap/profil"
+                  element={
+                    <ProtectedRoute>
+                      <Profil />
                     </ProtectedRoute>
                   }
                 />
