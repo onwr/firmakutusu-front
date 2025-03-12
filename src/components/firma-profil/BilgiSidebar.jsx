@@ -7,7 +7,6 @@ const BilgiSidebar = ({ tab, setTab }) => {
   return (
     <div className="w-full lg:w-auto">
       <div className="px-4 lg:px-8 py-6 lg:py-10 montserrat border border-[#A2ACC7] outline-none rounded-xl flex flex-col gap-4 cursor-pointer">
-        {/* Tab buttons */}
         <motion.button
           onClick={() => setTab(0)}
           className="flex items-center group gap-1.5"

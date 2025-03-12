@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const FirmaBilgileri = () => {
+const FirmaBilgileri = ({ isLogin }) => {
   return (
     <motion.div
       key="tab-0"
@@ -26,13 +26,27 @@ const FirmaBilgileri = () => {
       </p>
       <div className="flex flex-col gap-4">
         <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-0 sm:justify-between">
-          <p className="text-[#232323] font-medium w-full sm:w-1/3 text-base sm:text-xl">
-            Firma Unvanı
-          </p>
-          <p className="text-[#232323] w-full text-base sm:text-xl">
-            AYYILDIZ TÜNEL EKİPMANLARI İMALATI MÜHENDİSLİK SANAYİ VE TİCARET
-            ANONİM ŞİRKETİ
-          </p>
+          {!isLogin ? (
+            <>
+              <p className="text-[#232323] font-medium w-full sm:w-1/3 text-base sm:text-xl">
+                Firma Unvanı
+              </p>
+              <p className="text-[#232323] w-full text-base sm:text-xl">
+                AYYILDIZ TÜNEL EKİPMANLARI İMALATI MÜHENDİSLİK SANAYİ VE TİCARET
+                ANONİM ŞİRKETİ
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="text-[#232323] flex items-center gap-1.5 font-medium w-full sm:w-1/3 text-base sm:text-xl">
+                <img src="/images/icons/profil/kilitli.svg" /> Firma Unvanı
+              </p>
+              <p className="w-full placeholder-[#1D547D] text-[#1D547D] text-base py-3 px-[10px] border border-[#A2ACC7] border-dashed rounded-sm">
+                AYYILDIZ TÜNEL EKİPMANLARI İMALATI MÜHENDİSLİK SANAYİ VE TİCARET
+                ANONİM ŞİRKETİ
+              </p>
+            </>
+          )}
         </div>
         <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-0 sm:justify-between">
           <p className="text-[#232323] font-medium w-full sm:w-1/3 text-base sm:text-xl">

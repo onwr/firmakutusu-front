@@ -1,50 +1,11 @@
 import React from "react";
 import Header from "../../components/Header";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Hero from "../../components/firma-profil/Hero";
 import FirmaBilgiHero from "../../components/firma-profil/FirmaBilgiHero";
+import FirmaContent from "../../components/firma-profil/FirmaContent";
 
 const Profil = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-    hover: {
-      y: -10,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
   return (
     <div>
       <Header />
@@ -71,6 +32,10 @@ const Profil = () => {
           <div className="flex mt-5 flex-col border bg-white border-[#A2ACC7] rounded-xl">
             <Hero isLogin={true} />
             <FirmaBilgiHero isLogin={true} />
+          </div>
+
+          <div>
+            <FirmaContent isLogin={true} />
           </div>
         </div>
       </div>

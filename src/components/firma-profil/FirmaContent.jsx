@@ -4,7 +4,7 @@ import BilgiSidebar from "./BilgiSidebar";
 import BilgiRight from "./BilgiRight";
 import { BsArrowDownCircle } from "react-icons/bs";
 
-const FirmaContent = () => {
+const FirmaContent = ({ isLogin }) => {
   const [tab, setTab] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -70,7 +70,7 @@ const FirmaContent = () => {
       </AnimatePresence>
 
       <div className="w-full">
-        <BilgiRight tab={tab} setTab={handleTabSelect} />
+        <BilgiRight tab={tab} setTab={handleTabSelect} isLogin={isLogin} />
       </div>
     </div>
   );
