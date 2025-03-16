@@ -100,15 +100,15 @@ const Header = () => {
       return (
         <div className="relative w-full flex gap-2">
           <img
-            src="/images/icons/firma-profil/firma-logo.svg"
+            src={user.firma.profil_resmi_url}
             className="size-16 rounded-full border border-[#01A4BD]"
           />
           <div className="flex pr-3 flex-col gap-0">
             <p className="font-semibold text-[13px] text-[#232323] montserrat">
-              {user.name}
+              {user.yetkili_kisi.ad} {user.yetkili_kisi.soyad}
             </p>
             <p className="text-[10px] line-clamp-3 max-w-40 text-[#232323] uppercase montserrat">
-              {user.firma.firmaAd}
+              {user.firma.firma_unvani}
             </p>
           </div>
           <div className=" flex-col gap-1 flex border-l border-[#45535E] pl-3">
@@ -228,15 +228,15 @@ const Header = () => {
               >
                 <div className="relative w-full flex gap-2">
                   <img
-                    src="/images/icons/firma-profil/firma-logo.svg"
+                    src={user.firma.profil_resmi_url}
                     className="size-16 rounded-full border border-[#01A4BD]"
                   />
                   <div className="flex pr-3 flex-col gap-0">
                     <p className="font-semibold text-[13px] text-[#232323] montserrat">
-                      {user.name}
+                      {user.yetkili_kisi.ad} {user.yetkili_kisi.soyad}
                     </p>
                     <p className="text-[10px] line-clamp-3 max-w-40 text-[#232323] uppercase montserrat">
-                      {user.firma.firmaAd}
+                      {user.firma.firma_unvani}
                     </p>
                   </div>
                   <div className=" flex-col gap-1 flex border-l border-[#45535E] pl-3">
@@ -349,15 +349,15 @@ const Header = () => {
                   >
                     <div className="relative w-full flex gap-2">
                       <img
-                        src="/images/icons/firma-profil/firma-logo.svg"
+                        src={user.firma.profil_resmi_url}
                         className="size-16 rounded-full border border-[#01A4BD]"
                       />
                       <div className="flex pr-3 flex-col gap-0">
                         <p className="font-semibold text-[13px] text-[#232323] montserrat">
-                          {user.name}
+                          {user.yetkili_kisi.ad} {user.yetkili_kisi.soyad}
                         </p>
                         <p className="text-[10px] line-clamp-3 max-w-40 text-[#232323] uppercase montserrat">
-                          {user.firma.firmaAd}
+                          {user.firma.firma_unvani}
                         </p>
                       </div>
                       <div className=" flex-col gap-1 flex border-l border-[#45535E] pl-3">

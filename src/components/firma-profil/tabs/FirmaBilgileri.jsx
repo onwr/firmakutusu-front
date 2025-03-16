@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const FirmaBilgileri = ({ isLogin }) => {
+const FirmaBilgileri = () => {
   return (
     <motion.div
       key="tab-0"
@@ -26,27 +26,13 @@ const FirmaBilgileri = ({ isLogin }) => {
       </p>
       <div className="flex flex-col gap-4">
         <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-0 sm:justify-between">
-          {!isLogin ? (
-            <>
-              <p className="text-[#232323] font-medium w-full sm:w-1/3 text-base sm:text-xl">
-                Firma Unvanı
-              </p>
-              <p className="text-[#232323] w-full text-base sm:text-xl">
-                AYYILDIZ TÜNEL EKİPMANLARI İMALATI MÜHENDİSLİK SANAYİ VE TİCARET
-                ANONİM ŞİRKETİ
-              </p>
-            </>
-          ) : (
-            <>
-              <p className="text-[#232323] flex items-center gap-1.5 font-medium w-full sm:w-1/3 text-base sm:text-xl">
-                <img src="/images/icons/profil/kilitli.svg" /> Firma Unvanı
-              </p>
-              <p className="w-full placeholder-[#1D547D] text-[#1D547D] text-base py-3 px-[10px] border border-[#A2ACC7] border-dashed rounded-sm">
-                AYYILDIZ TÜNEL EKİPMANLARI İMALATI MÜHENDİSLİK SANAYİ VE TİCARET
-                ANONİM ŞİRKETİ
-              </p>
-            </>
-          )}
+          <p className="text-[#232323] font-medium w-full sm:w-1/3 text-base sm:text-xl">
+            Firma Unvanı
+          </p>
+          <p className="text-[#232323] w-full text-base sm:text-xl">
+            AYYILDIZ TÜNEL EKİPMANLARI İMALATI MÜHENDİSLİK SANAYİ VE TİCARET
+            ANONİM ŞİRKETİ
+          </p>
         </div>
         <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-0 sm:justify-between">
           <p className="text-[#232323] font-medium w-full sm:w-1/3 text-base sm:text-xl">
@@ -64,84 +50,88 @@ const FirmaBilgileri = ({ isLogin }) => {
             Demir Çelik İmalatı
           </p>
         </div>
+
         <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-0 sm:justify-between">
-          <p className="text-[#232323] font-medium w-full sm:w-1/3 text-base sm:text-xl">
-            Faaliyet Alanı
-          </p>
-          <div className="w-full overflow-x-auto">
-            <table className="w-full border-collapse min-w-[600px]">
-              <thead>
-                <tr>
-                  <th className="border w-32 sm:w-40 border-[#A2ACC7] bg-[#F1EEE6] text-[#232323] p-2 text-xs sm:text-sm text-center">
-                    Faaliyet Türü
-                  </th>
-                  <th className="border border-[#A2ACC7] bg-[#F1EEE6] text-[#232323] p-2 text-xs sm:text-sm text-left">
-                    Faaliyet Alanı
-                  </th>
-                  <th className="border w-32 sm:w-40 border-[#A2ACC7] bg-[#F1EEE6] text-[#232323] p-2 text-xs sm:text-sm text-center">
-                    NACE Kodu
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
-                    Ana Faaliyet
-                  </td>
-                  <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
-                    Metallerin Makinede İşlenmesi (Torna Tesfiye İşleri, Metal
-                    Parçaları Delme, Tornalama, Frezeleme, Rendeleme, Parlatma,
-                    Oluk Açma, Perdahlama, Birleştirme, Kaynak Yapma Vb.
-                    Faaliyetler) (Metallerin Lazerle Kesilmesi Hariç)
-                  </td>
-                  <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm text-center">
-                    25.62.02
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
-                    EK Faaliyet - 1
-                  </td>
-                  <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
-                    Demir/Çelikten Haddelenmiş/Soğuk Çekilmiş Yassı Ürünlerin
-                    Toptan Ticareti
-                  </td>
-                  <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm text-center">
-                    46.72.08
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
-                    EK Faaliyet - 2
-                  </td>
-                  <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
-                    Demir/çelikten bar ve çubukların, profillerin, levha
-                    kazıkların (palplanş), tüp ve boruların toptan ticareti
-                    (filmaşin, inşaat demiri, sondaj borusu, petrol, gaz vb.
-                    hatlar için borular, vb. ile tel dahil)
-                  </td>
-                  <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm text-center">
-                    46.72.09
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
-                    EK Faaliyet - 3
-                  </td>
-                  <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
-                    Demir/çelikten bar ve çubukların, profillerin, levha
-                    kazıkların (palplanş), tüp ve boruların toptan ticareti
-                    (filmaşin, inşaat demiri, sondaj borusu, petrol, gaz vb.
-                    hatlar için borular, vb. ile tel dahil)
-                  </td>
-                  <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm text-center">
-                    46.72.09
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <>
+            <p className="text-[#232323] font-medium w-full sm:w-1/3 text-base sm:text-xl">
+              Faaliyet Alanı
+            </p>
+            <div className="w-full overflow-x-auto">
+              <table className="w-full border-collapse min-w-[600px]">
+                <thead>
+                  <tr>
+                    <th className="border w-32 sm:w-40 border-[#A2ACC7] bg-[#F1EEE6] text-[#232323] p-2 text-xs sm:text-sm text-center">
+                      Faaliyet Türü
+                    </th>
+                    <th className="border border-[#A2ACC7] bg-[#F1EEE6] text-[#232323] p-2 text-xs sm:text-sm text-left">
+                      Faaliyet Alanı
+                    </th>
+                    <th className="border w-32 sm:w-40 border-[#A2ACC7] bg-[#F1EEE6] text-[#232323] p-2 text-xs sm:text-sm text-center">
+                      NACE Kodu
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
+                      Ana Faaliyet
+                    </td>
+                    <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
+                      Metallerin Makinede İşlenmesi (Torna Tesfiye İşleri, Metal
+                      Parçaları Delme, Tornalama, Frezeleme, Rendeleme,
+                      Parlatma, Oluk Açma, Perdahlama, Birleştirme, Kaynak Yapma
+                      Vb. Faaliyetler) (Metallerin Lazerle Kesilmesi Hariç)
+                    </td>
+                    <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm text-center">
+                      25.62.02
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
+                      EK Faaliyet - 1
+                    </td>
+                    <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
+                      Demir/Çelikten Haddelenmiş/Soğuk Çekilmiş Yassı Ürünlerin
+                      Toptan Ticareti
+                    </td>
+                    <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm text-center">
+                      46.72.08
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
+                      EK Faaliyet - 2
+                    </td>
+                    <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
+                      Demir/çelikten bar ve çubukların, profillerin, levha
+                      kazıkların (palplanş), tüp ve boruların toptan ticareti
+                      (filmaşin, inşaat demiri, sondaj borusu, petrol, gaz vb.
+                      hatlar için borular, vb. ile tel dahil)
+                    </td>
+                    <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm text-center">
+                      46.72.09
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
+                      EK Faaliyet - 3
+                    </td>
+                    <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm">
+                      Demir/çelikten bar ve çubukların, profillerin, levha
+                      kazıkların (palplanş), tüp ve boruların toptan ticareti
+                      (filmaşin, inşaat demiri, sondaj borusu, petrol, gaz vb.
+                      hatlar için borular, vb. ile tel dahil)
+                    </td>
+                    <td className="border border-[#A2ACC7] p-2 text-xs sm:text-sm text-center">
+                      46.72.09
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </>
         </div>
+
         <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-0 sm:justify-between">
           <p className="text-[#232323] font-medium w-full sm:w-1/3 text-base sm:text-xl">
             Faaliyet Durumu

@@ -9,7 +9,7 @@ import Referanslar from "./tabs/Referanslar";
 import Kampanyalarimiz from "./tabs/Kampanyalarimiz";
 import CV from "./tabs/CV";
 
-const BilgiRight = ({ tab, isLogin }) => {
+const BilgiRight = ({ tab }) => {
   return (
     <div className="w-full p-4 lg:p-[42px] h-fit border border-[#A2ACC7] montserrat rounded-xl">
       <AnimatePresence mode="wait">
@@ -20,7 +20,7 @@ const BilgiRight = ({ tab, isLogin }) => {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.2 }}
         >
-          {tab === 0 && <FirmaBilgileri isLogin={true} />}
+          {tab === 0 && <FirmaBilgileri />}
           {tab === 1 && <Hakkimizda />}
           {tab === 2 && <UrunHizmet />}
           {tab === 3 && <Subelerimiz />}

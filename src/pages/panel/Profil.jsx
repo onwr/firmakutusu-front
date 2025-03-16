@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "../../components/Header";
 import { motion } from "framer-motion";
-import Hero from "../../components/firma-profil/Hero";
-import FirmaBilgiHero from "../../components/firma-profil/FirmaBilgiHero";
-import FirmaContent from "../../components/firma-profil/FirmaContent";
+import Hero from "../../components/profil/Hero";
+import FirmaBilgiHero from "../../components/profil/FirmaBilgiHero";
+import FirmaContent from "../../components/profil/FirmaContent";
 
 const Profil = () => {
   return (
