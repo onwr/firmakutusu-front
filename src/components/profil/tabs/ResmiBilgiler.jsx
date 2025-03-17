@@ -24,6 +24,7 @@ const FirmaBilgileri = () => {
     firma_unvani: firma.firma_unvani,
     marka_adi: firma.marka_adi,
     hizmet_alani: firma.hizmet_alani,
+    faaliyet_durumu: firma.resmi_bilgiler.faaliyet_durumu,
   });
 
   const handleInputChange = (e) => {
@@ -163,6 +164,21 @@ const FirmaBilgileri = () => {
             </table>
           </div>
         </>
+      </div>
+
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#3D4D66] montserrat font-medium">
+          <img src="/images/icons/profil/kilitli.svg" alt="" />
+          Faaliyet Durumu
+        </p>
+        <input
+          type="text"
+          disabled
+          name="faaliyet_durumu"
+          value={formData.faaliyet_durumu ? "Faal" : "Pasif"}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
       </div>
     </>
   );

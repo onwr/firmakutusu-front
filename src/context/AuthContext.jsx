@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 
       resmi_bilgiler: {
         faaliyet_alani: "Tünel Ekipmanları İmalatı ve Mühendislik Hizmetleri",
-        faaliyet_durumu: "Aktif",
+        faaliyet_durumu: true,
         vergi_dairesi_adi: "Ümraniye Vergi Dairesi",
         mersis_no: "0123456789000015",
         e_fatura_kullanimi: true,
