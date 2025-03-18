@@ -303,7 +303,6 @@ const FirmaBilgileri = () => {
         />
       </div>
 
-      {/* E-Fatura Dropdown - Fixed */}
       <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row relative">
         <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
           <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
@@ -478,7 +477,6 @@ const FirmaBilgileri = () => {
         </div>
       </div>
 
-      {/* Merkez Adresi */}
       <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
         <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
           <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
@@ -493,7 +491,6 @@ const FirmaBilgileri = () => {
         />
       </div>
 
-      {/* KEP Adresi */}
       <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
         <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
           <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
@@ -508,7 +505,6 @@ const FirmaBilgileri = () => {
         />
       </div>
 
-      {/* E-Posta Adresi */}
       <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
         <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
           <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
@@ -523,7 +519,6 @@ const FirmaBilgileri = () => {
         />
       </div>
 
-      {/* Web Sitesi */}
       <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
         <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
           <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
@@ -538,7 +533,6 @@ const FirmaBilgileri = () => {
         />
       </div>
 
-      {/* İletişim Telefonu */}
       <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
         <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
           <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
@@ -553,7 +547,6 @@ const FirmaBilgileri = () => {
         />
       </div>
 
-      {/* Fax Numarası */}
       <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
         <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
           <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
@@ -568,7 +561,6 @@ const FirmaBilgileri = () => {
         />
       </div>
 
-      {/* Banka IBAN */}
       <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
         <p className="flex sm:w-1/3 items_center gap-1.5 text-[#007356] montserrat font-medium">
           <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
@@ -583,7 +575,6 @@ const FirmaBilgileri = () => {
         />
       </div>
 
-      {/* Banka Adı */}
       <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
         <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
           <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
@@ -838,7 +829,7 @@ const FirmaBilgileri = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="montserrat px-4 lg:px-0"
+      className="montserrat"
     >
       <div className="flex justify-end mb-2 sm:mb-0">
         <p className="text-[#120A8F] font-semibold text-xs sm:text-sm">

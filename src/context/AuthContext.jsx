@@ -55,7 +55,8 @@ export const AuthProvider = ({ children }) => {
 
       hakkimizda: {
         ceo_resmi_url: "/images/ceo.jpg",
-        ceo_adi: "Mehmet ATALAN",
+        baslik: "CEO Mesajı",
+        ceo_adi: "Ali ATALAN",
         ceo_mesaji:
           "Ayyıldız olarak, Türkiye'nin önde gelen tünel ekipmanları üreticisi olarak 10 yılı aşkın süredir hizmet vermekteyiz. Müşteri memnuniyeti ve kalite anlayışımızla sektörde lider konuma gelmeyi başardık.",
       },
