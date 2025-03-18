@@ -5,7 +5,12 @@ import { useAuth } from "../../../context/AuthContext";
 const FirmaBilgileri = () => {
   const { isLogin, user } = useAuth();
   const { firma } = user;
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const [isSektorDropdownOpen, setIsSektorDropdownOpen] = useState(false);
+  const [isEFaturaDropdownOpen, setIsEFaturaDropdownOpen] = useState(false);
+  const [isEArsivDropdownOpen, setIsEArsivDropdownOpen] = useState(false);
+  const [isEIrsaliyeDropdownOpen, setIsEIrsaliyeDropdownOpen] = useState(false);
+  const [isEDefterDropdownOpen, setIsEDefterDropdownOpen] = useState(false);
 
   const sektorler = [
     "İnşaat",
@@ -25,6 +30,23 @@ const FirmaBilgileri = () => {
     marka_adi: firma.marka_adi,
     hizmet_alani: firma.hizmet_alani,
     faaliyet_durumu: firma.resmi_bilgiler.faaliyet_durumu,
+    kurulus_tarihi: firma.kurulus_tarihi,
+    kurulus_sehri: firma.kurulus_sehri,
+    vkn: firma.vergi_kimlik_no,
+    vergi_dairesi_adi: firma.resmi_bilgiler.vergi_dairesi_adi,
+    mersis_no: firma.resmi_bilgiler.mersis_no,
+    e_fatura_kullanimi: firma.resmi_bilgiler.e_fatura_kullanimi,
+    e_arsiv_kullanimi: firma.resmi_bilgiler.e_arsiv_kullanimi,
+    e_irsaliye_kullanimi: firma.resmi_bilgiler.e_irsaliye_kullanimi,
+    e_defter_kullanimi: firma.resmi_bilgiler.e_defter_kullanimi,
+    merkez_adresi: firma.merkez_adresi,
+    kep_adresi: firma.kep_adresi,
+    email: firma.email,
+    web_sitesi: firma.web_sitesi,
+    iletisim_telefonu: firma.iletisim_telefonu,
+    fax_numarasi: firma.resmi_bilgiler.fax_numarasi,
+    iban_numarasi: firma.resmi_bilgiler.banka_iban,
+    banka_adi: firma.resmi_bilgiler.banka_adi,
   });
 
   const handleInputChange = (e) => {
@@ -40,7 +62,33 @@ const FirmaBilgileri = () => {
       ...prev,
       hizmet_alani: sektor,
     }));
-    setIsDropdownOpen(false);
+    setIsSektorDropdownOpen(false);
+  };
+
+  const handleBooleanSelect = (field, value) => {
+    const boolValue = value === "Evet";
+
+    setFormData((prev) => ({
+      ...prev,
+      [field]: boolValue,
+    }));
+
+    switch (field) {
+      case "e_fatura_kullanimi":
+        setIsEFaturaDropdownOpen(false);
+        break;
+      case "e_arsiv_kullanimi":
+        setIsEArsivDropdownOpen(false);
+        break;
+      case "e_irsaliye_kullanimi":
+        setIsEIrsaliyeDropdownOpen(false);
+        break;
+      case "e_defter_kullanimi":
+        setIsEDefterDropdownOpen(false);
+        break;
+      default:
+        break;
+    }
   };
 
   const handleSubmit = () => {
@@ -85,7 +133,7 @@ const FirmaBilgileri = () => {
         </p>
         <div className="w-full relative">
           <div
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            onClick={() => setIsSektorDropdownOpen(!isSektorDropdownOpen)}
             className="py-3 px-[10px] border border-[#A2ACC7] flex items-center justify-between border-dashed outline-0 rounded-lg w-full text-[#1D547D] cursor-pointer"
           >
             <p>{formData.hizmet_alani}</p>
@@ -94,12 +142,12 @@ const FirmaBilgileri = () => {
                 src="/images/icons/down.svg"
                 alt="Aşağı"
                 className={`transition-transform duration-200 ${
-                  isDropdownOpen ? "rotate-180" : ""
+                  isSektorDropdownOpen ? "rotate-180" : ""
                 }`}
               />
             </button>
           </div>
-          {isDropdownOpen && (
+          {isSektorDropdownOpen && (
             <div className="absolute z-10 w-full mt-1 bg-white border border-[#A2ACC7] rounded-lg shadow-lg max-h-60 overflow-y-auto">
               {sektorler.map((sektor, index) => (
                 <div
@@ -180,9 +228,377 @@ const FirmaBilgileri = () => {
           className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
         />
       </div>
+
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#3D4D66] montserrat font-medium">
+          <img src="/images/icons/profil/kilitli.svg" alt="" />
+          Kuruluş Tarihi
+        </p>
+        <input
+          type="text"
+          disabled
+          name="kurulus_tarihi"
+          value={formData.kurulus_tarihi}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
+      </div>
+
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#3D4D66] montserrat font-medium">
+          <img src="/images/icons/profil/kilitli.svg" alt="" />
+          Kuruluş Şehri
+        </p>
+        <input
+          type="text"
+          disabled
+          name="kurulus_tarihi"
+          value={formData.kurulus_sehri}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
+      </div>
+
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#3D4D66] montserrat font-medium">
+          <img src="/images/icons/profil/kilitli.svg" alt="" />
+          Vergi Kimlik No
+        </p>
+        <input
+          type="text"
+          disabled
+          name="vkn"
+          value={formData.vkn}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
+      </div>
+
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#3D4D66] montserrat font-medium">
+          <img src="/images/icons/profil/kilitli.svg" alt="" />
+          Vergi Dairesi Adı
+        </p>
+        <input
+          type="text"
+          disabled
+          name="vergi_dairesi_adi"
+          value={formData.vergi_dairesi_adi}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
+      </div>
+
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
+          <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
+          MERSİS No
+        </p>
+        <input
+          type="text"
+          name="mersis_no"
+          value={formData.mersis_no}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
+      </div>
+
+      {/* E-Fatura Dropdown - Fixed */}
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row relative">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
+          <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
+          E-Fatura Kullanımı
+        </p>
+        <div className="w-full relative">
+          <div
+            onClick={() => setIsEFaturaDropdownOpen(!isEFaturaDropdownOpen)}
+            className="py-3 px-[10px] border border-[#A2ACC7] flex items-center justify-between border-dashed outline-0 rounded-lg w-full text-[#1D547D] cursor-pointer"
+          >
+            <p>{formData.e_fatura_kullanimi ? "Evet" : "Hayır"}</p>
+            <button type="button">
+              <img
+                src="/images/icons/down.svg"
+                alt="Aşağı"
+                className={`transition-transform duration-200 ${
+                  isEFaturaDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
+          {isEFaturaDropdownOpen && (
+            <div className="absolute z-10 w-full mt-1 bg-white border border-[#A2ACC7] rounded-lg shadow-lg max-h-60 overflow-y-auto">
+              <div
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#1D547D]"
+                onClick={() =>
+                  handleBooleanSelect("e_fatura_kullanimi", "Evet")
+                }
+              >
+                Evet
+              </div>
+              <div
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#1D547D]"
+                onClick={() =>
+                  handleBooleanSelect("e_fatura_kullanimi", "Hayır")
+                }
+              >
+                Hayır
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row relative">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
+          <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
+          E-Arşiv Kullanımı
+        </p>
+        <div className="w-full relative">
+          <div
+            onClick={() => setIsEArsivDropdownOpen(!isEArsivDropdownOpen)}
+            className="py-3 px-[10px] border border-[#A2ACC7] flex items-center justify-between border-dashed outline-0 rounded-lg w-full text-[#1D547D] cursor-pointer"
+          >
+            <p>{formData.e_arsiv_kullanimi ? "Evet" : "Hayır"}</p>
+            <button type="button">
+              <img
+                src="/images/icons/down.svg"
+                alt="Aşağı"
+                className={`transition-transform duration-200 ${
+                  isEArsivDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
+          {isEArsivDropdownOpen && (
+            <div className="absolute z-10 w-full mt-1 bg-white border border-[#A2ACC7] rounded-lg shadow-lg max-h-60 overflow-y-auto">
+              <div
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#1D547D]"
+                onClick={() => handleBooleanSelect("e_arsiv_kullanimi", "Evet")}
+              >
+                Evet
+              </div>
+              <div
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#1D547D]"
+                onClick={() =>
+                  handleBooleanSelect("e_arsiv_kullanimi", "Hayır")
+                }
+              >
+                Hayır
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row relative">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
+          <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
+          E-İrsaliye Kullanımı
+        </p>
+        <div className="w-full relative">
+          <div
+            onClick={() => setIsEIrsaliyeDropdownOpen(!isEIrsaliyeDropdownOpen)}
+            className="py-3 px-[10px] border border-[#A2ACC7] flex items-center justify-between border-dashed outline-0 rounded-lg w-full text-[#1D547D] cursor-pointer"
+          >
+            <p>{formData.e_irsaliye_kullanimi ? "Evet" : "Hayır"}</p>
+            <button type="button">
+              <img
+                src="/images/icons/down.svg"
+                alt="Aşağı"
+                className={`transition-transform duration-200 ${
+                  isEIrsaliyeDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
+          {isEIrsaliyeDropdownOpen && (
+            <div className="absolute z-10 w-full mt-1 bg-white border border-[#A2ACC7] rounded-lg shadow-lg max-h-60 overflow-y-auto">
+              <div
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#1D547D]"
+                onClick={() =>
+                  handleBooleanSelect("e_irsaliye_kullanimi", "Evet")
+                }
+              >
+                Evet
+              </div>
+              <div
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#1D547D]"
+                onClick={() =>
+                  handleBooleanSelect("e_irsaliye_kullanimi", "Hayır")
+                }
+              >
+                Hayır
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row relative">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
+          <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
+          E-Defter Kullanımı
+        </p>
+        <div className="w-full relative">
+          <div
+            onClick={() => setIsEDefterDropdownOpen(!isEDefterDropdownOpen)}
+            className="py-3 px-[10px] border border-[#A2ACC7] flex items-center justify-between border-dashed outline-0 rounded-lg w-full text-[#1D547D] cursor-pointer"
+          >
+            <p>{formData.e_defter_kullanimi ? "Evet" : "Hayır"}</p>
+            <button type="button">
+              <img
+                src="/images/icons/down.svg"
+                alt="Aşağı"
+                className={`transition-transform duration-200 ${
+                  isEDefterDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
+          {isEDefterDropdownOpen && (
+            <div className="absolute z-10 w-full mt-1 bg-white border border-[#A2ACC7] rounded-lg shadow-lg max-h-60 overflow-y-auto">
+              <div
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#1D547D]"
+                onClick={() =>
+                  handleBooleanSelect("e_defter_kullanimi", "Evet")
+                }
+              >
+                Evet
+              </div>
+              <div
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#1D547D]"
+                onClick={() =>
+                  handleBooleanSelect("e_defter_kullanimi", "Hayır")
+                }
+              >
+                Hayır
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Merkez Adresi */}
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
+          <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
+          Merkez Adresi
+        </p>
+        <input
+          type="text"
+          name="merkez_adresi"
+          value={formData.merkez_adresi}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
+      </div>
+
+      {/* KEP Adresi */}
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
+          <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
+          KEP Adresi
+        </p>
+        <input
+          type="text"
+          name="kep_adresi"
+          value={formData.kep_adresi}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
+      </div>
+
+      {/* E-Posta Adresi */}
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
+          <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
+          E-Posta Adresi
+        </p>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
+      </div>
+
+      {/* Web Sitesi */}
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
+          <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
+          Resmi Web Adresi
+        </p>
+        <input
+          type="url"
+          name="web_sitesi"
+          value={formData.web_sitesi}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
+      </div>
+
+      {/* İletişim Telefonu */}
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
+          <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
+          İletişim Telefonu
+        </p>
+        <input
+          type="tel"
+          name="iletisim_telefonu"
+          value={formData.iletisim_telefonu}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
+      </div>
+
+      {/* Fax Numarası */}
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
+          <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
+          Fax Numarası
+        </p>
+        <input
+          type="tel"
+          name="fax_numarasi"
+          value={formData.fax_numarasi}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
+      </div>
+
+      {/* Banka IBAN */}
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items_center gap-1.5 text-[#007356] montserrat font-medium">
+          <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
+          Banka IBAN Numarası
+        </p>
+        <input
+          type="text"
+          name="iban_numarasi"
+          value={formData.iban_numarasi}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
+      </div>
+
+      {/* Banka Adı */}
+      <div className="flex flex-col sm:items-center gap-2 sm:gap-0 sm:justify-between sm:flex-row">
+        <p className="flex sm:w-1/3 items-center gap-1.5 text-[#007356] montserrat font-medium">
+          <img src="/images/icons/profil/duzenlenebilir.svg" alt="" />
+          Banka Adı
+        </p>
+        <input
+          type="text"
+          name="banka_adi"
+          value={formData.banka_adi}
+          onChange={handleInputChange}
+          className="py-3 px-[10px] border border-[#A2ACC7] border-dashed outline-0 rounded-lg w-full text-[#1D547D]"
+        />
+      </div>
     </>
   );
-
   const existingViewUI = (
     <>
       <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-0 sm:justify-between">
