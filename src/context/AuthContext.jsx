@@ -61,24 +61,29 @@ export const AuthProvider = ({ children }) => {
           "Ayyıldız olarak, Türkiye'nin önde gelen tünel ekipmanları üreticisi olarak 10 yılı aşkın süredir hizmet vermekteyiz. Müşteri memnuniyeti ve kalite anlayışımızla sektörde lider konuma gelmeyi başardık.",
       },
 
-      urun_hizmetler: [
-        {
-          id: 1,
-          belge_adi: "Tünel Delme Ekipmanları Kataloğu",
-          gecerlilik_baslangic: "2023-01-01",
-          gecerlilik_bitis: "2023-12-31",
-          acilis_katalogu: true,
-          pdf_url: "/documents/catalog-2023.pdf",
-        },
-        {
-          id: 2,
-          belge_adi: "Tünel Kaplama Sistemleri",
-          gecerlilik_baslangic: "2023-01-01",
-          gecerlilik_bitis: "2023-12-31",
-          acilis_katalogu: false,
-          pdf_url: "/documents/tunel-kaplama-2023.pdf",
-        },
-      ],
+      urun_hizmetler: {
+        baslik: "Ürün & Hizmetlerimiz",
+        metin:
+          "Ayyıldız olarak, tünel ekipmanları konusunda geniş bir ürün yelpazesi sunmaktayız. Müşterilerimizin ihtiyaçlarına uygun çözümler üretiyoruz.",
+        urunler: [
+          {
+            id: 1,
+            belge_adi: "Tünel Delme Ekipmanları Kataloğu",
+            gecerlilik_baslangic: "2023-01-01",
+            gecerlilik_bitis: "2023-12-31",
+            acilis_katalogu: true,
+            pdf_url: "/documents/catalog-2023.pdf",
+          },
+          {
+            id: 2,
+            belge_adi: "Tünel Kaplama Sistemleri",
+            gecerlilik_baslangic: "2023-01-01",
+            gecerlilik_bitis: "2023-12-31",
+            acilis_katalogu: false,
+            pdf_url: "/documents/tunel-kaplama-2023.pdf",
+          },
+        ],
+      },
 
       subeler: [
         {

@@ -8,7 +8,7 @@ const Hero = ({ isLogin }) => {
         src="/images/icons/firma-profil/firma-profilhero.svg"
         className="w-full h-full object-cover rounded-t-2xl"
       />
-      <div className="absolute top-4 md:top-32 right-5">
+      <div className="absolute top-4 md:top-32 right-4">
         <div className="flex pl-5 flex-row gap-2">
           {!isLogin ? (
             <>
@@ -51,7 +51,7 @@ const Hero = ({ isLogin }) => {
                     src={`/images/icons/profil/${data.icon}.svg`}
                     className="size-5"
                   />
-                  <p className="text-[#10069F] text-xs lg:text-sm montserrat font-medium">
+                  <p className="text-[#10069F] text-[10px] lg:text-sm montserrat font-medium">
                     {data.title}
                   </p>
                 </motion.button>

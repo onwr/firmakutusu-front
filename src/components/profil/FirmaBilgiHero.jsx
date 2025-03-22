@@ -108,7 +108,7 @@ const FirmaBilgiHero = ({ isLogin }) => {
         >
           AYYILDIZ TÜNEL EKİPMANLARI İMALATI MÜHENDİSLİK SAN. VE TİC. A.Ş.
         </motion.p>
-        <div className="mt-8 flex flex-col gap-2 md:gap-1">
+        <div className="mt-4 md:mt-8 flex flex-col gap-2 md:gap-1">
           {[
             { label: "Hizmet Alanı", value: "Demir Çelik İmalatı" },
             { label: "Kuruluş Tarihi", value: "05.05.2024" },
@@ -137,11 +137,13 @@ const FirmaBilgiHero = ({ isLogin }) => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1.5 + index * 0.2 }}
             >
-              <p className="montserrat font-medium w-1/3 md:w-1/5">
+              <p className="montserrat font-medium w-full md:w-1/5">
                 {item.label}
               </p>
               <p
-                className={`montserrat ${item.link && "text-[#120A8F]"} w-full`}
+                className={`montserrat ${
+                  item.link && "text-[#120A8F]"
+                } text-sm md:text-base w-full`}
               >
                 {item.value}
               </p>

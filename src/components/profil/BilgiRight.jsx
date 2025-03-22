@@ -2,6 +2,7 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import FirmaBilgileri from "./tabs/ResmiBilgiler";
 import Hakkimizda from "./tabs/Hakkimizda";
+import UrunHizmetler from "./tabs/UrunHizmetler";
 const BilgiRight = ({ tab }) => {
   return (
     <div className="w-full p-4 lg:p-[42px] h-fit border border-[#A2ACC7] montserrat rounded-xl">
@@ -15,6 +16,7 @@ const BilgiRight = ({ tab }) => {
         >
           {tab === 0 && <FirmaBilgileri />}
           {tab === 1 && <Hakkimizda />}
+          {tab === 2 && <UrunHizmetler />}
         </motion.div>
       </AnimatePresence>
     </div>
