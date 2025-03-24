@@ -194,27 +194,34 @@ export const AuthProvider = ({ children }) => {
               },
             ],
           },
-        ]
+        ],
       },
 
-      kalite_belgeleri: [
-        {
-          id: 1,
-          belge_resmi_url: "/images/belgeler/iso9001.jpg",
-          belge_adi: "ISO 9001:2015",
-          sertifika_no: "ISO9001-2023-12345",
-          verilis_tarihi: "2023-01-15",
-          gecerlilik_bitis: "2026-01-14",
-        },
-        {
-          id: 2,
-          belge_resmi_url: "/images/belgeler/iso14001.jpg",
-          belge_adi: "ISO 14001:2015",
-          sertifika_no: "ISO14001-2023-67890",
-          verilis_tarihi: "2023-01-15",
-          gecerlilik_bitis: "2026-01-14",
-        },
-      ],
+      kalite_belgeleri: {
+        baslik: "Kalite Belgelerimiz",
+        metin:
+          "Ayyıldız olarak, kalite ve müşteri memnuniyeti odaklı çalışma prensibimizle ISO 9001 ve ISO 14001 belgelerine sahibiz.",
+        belgeler: [
+          {
+            id: 1,
+            belge_resmi_url:
+              "/images/icons/firma-profil/icons/kalite-sertifika.svg",
+            belge_adi: "ISO 9001:2015",
+            sertifika_no: "ISO9001-2023-12345",
+            verilis_tarihi: "2023-01-15",
+            gecerlilik_bitis: "2026-01-14",
+          },
+          {
+            id: 2,
+            belge_resmi_url:
+              "/images/icons/firma-profil/icons/kalite-sertifika.svg",
+            belge_adi: "ISO 14001:2015",
+            sertifika_no: "ISO14001-2023-67890",
+            verilis_tarihi: "2023-01-15",
+            gecerlilik_bitis: "2026-01-14",
+          },
+        ],
+      },
 
       referanslar: [
         {

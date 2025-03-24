@@ -204,7 +204,7 @@ const SubeIslemleri = () => {
             exit={{ opacity: 0 }}
         >
             <div className="flex justify-end">
-                <p className="text-[#120A8F] font-semibold text-sm">Şubelerimiz</p>
+                <p className="text-[#120A8F] font-semibold text-sm">Hakkımızda</p>
             </div>
 
             {/* Başlık */}

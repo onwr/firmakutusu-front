@@ -3,7 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import FirmaBilgileri from "./tabs/ResmiBilgiler";
 import Hakkimizda from "./tabs/Hakkimizda";
 import UrunHizmetler from "./tabs/UrunHizmetler";
-import SubeIslemleri from './tabs/SubeIslemleri'
+import SubeIslemleri from "./tabs/SubeIslemleri";
+import KaliteBelgeIslemleri from "./tabs/KaliteBelgeIslemleri";
 
 const BilgiRight = ({ tab }) => {
   return (
@@ -20,6 +21,7 @@ const BilgiRight = ({ tab }) => {
           {tab === 1 && <Hakkimizda />}
           {tab === 2 && <UrunHizmetler />}
           {tab === 3 && <SubeIslemleri />}
+          {tab === 4 && <KaliteBelgeIslemleri />}
         </motion.div>
       </AnimatePresence>
     </div>
