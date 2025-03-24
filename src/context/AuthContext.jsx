@@ -85,113 +85,117 @@ export const AuthProvider = ({ children }) => {
         ],
       },
 
-      subeler: [
-        {
-          id: 1,
-          kapak_resmi_url: "/images/subeler/istanbul.jpg",
-          sube_adi: "İstanbul Merkez",
-          sube_adresi:
-            "Atatürk Mah. Turgut Özal Cad. No: 123 Ümraniye/İstanbul",
-          mail_adresi: "istanbul@ayyildiz.com.tr",
-          telefon_numarasi: "+90 216 555 67 89",
-          calisma_saatleri: [
-            {
-              gun: "Pazartesi",
-              acilis_saati: "09:00",
-              kapanis_saati: "18:00",
-              kapali: false,
-            },
-            {
-              gun: "Salı",
-              acilis_saati: "09:00",
-              kapanis_saati: "18:00",
-              kapali: false,
-            },
-            {
-              gun: "Çarşamba",
-              acilis_saati: "09:00",
-              kapanis_saati: "18:00",
-              kapali: false,
-            },
-            {
-              gun: "Perşembe",
-              acilis_saati: "09:00",
-              kapanis_saati: "18:00",
-              kapali: false,
-            },
-            {
-              gun: "Cuma",
-              acilis_saati: "09:00",
-              kapanis_saati: "18:00",
-              kapali: false,
-            },
-            {
-              gun: "Cumartesi",
-              acilis_saati: "10:00",
-              kapanis_saati: "14:00",
-              kapali: false,
-            },
-            {
-              gun: "Pazar",
-              acilis_saati: "00:00",
-              kapanis_saati: "00:00",
-              kapali: true,
-            },
-          ],
-        },
-        {
-          id: 2,
-          kapak_resmi_url: "/images/subeler/ankara.jpg",
-          sube_adi: "Ankara Şube",
-          sube_adresi: "Çankaya Cad. No: 45 Kızılay/Ankara",
-          mail_adresi: "ankara@ayyildiz.com.tr",
-          telefon_numarasi: "+90 312 555 67 89",
-          calisma_saatleri: [
-            {
-              gun: "Pazartesi",
-              acilis_saati: "09:00",
-              kapanis_saati: "18:00",
-              kapali: false,
-            },
-            {
-              gun: "Salı",
-              acilis_saati: "09:00",
-              kapanis_saati: "18:00",
-              kapali: false,
-            },
-            {
-              gun: "Çarşamba",
-              acilis_saati: "09:00",
-              kapanis_saati: "18:00",
-              kapali: false,
-            },
-            {
-              gun: "Perşembe",
-              acilis_saati: "09:00",
-              kapanis_saati: "18:00",
-              kapali: false,
-            },
-            {
-              gun: "Cuma",
-              acilis_saati: "09:00",
-              kapanis_saati: "18:00",
-              kapali: false,
-            },
-            {
-              gun: "Cumartesi",
-              acilis_saati: "00:00",
-              kapanis_saati: "00:00",
-              kapali: true,
-            },
-            {
-              gun: "Pazar",
-              acilis_saati: "00:00",
-              kapanis_saati: "00:00",
-              kapali: true,
-            },
-          ],
-        },
-      ],
+      subeler: {
+        baslik: "Baslik",
+        metin: "Metin",
+        subelerimiz: [
+          {
+            id: 1,
+            kapak_resmi_url: "/images/icons/firma-profil/icons/sube-resim.svg",
+            sube_adi: "İstanbul Merkez",
+            sube_adresi:
+              "Atatürk Mah. Turgut Özal Cad. No: 123 Ümraniye/İstanbul",
+            mail_adresi: "istanbul@ayyildiz.com.tr",
+            telefon_numarasi: "+90 216 555 67 89",
+            calisma_saatleri: [
+              {
+                gun: "Pazartesi",
+                acilis_saati: "09:00",
+                kapanis_saati: "18:00",
+                kapali: false,
+              },
+              {
+                gun: "Salı",
+                acilis_saati: "09:00",
+                kapanis_saati: "18:00",
+                kapali: false,
+              },
+              {
+                gun: "Çarşamba",
+                acilis_saati: "09:00",
+                kapanis_saati: "18:00",
+                kapali: false,
+              },
+              {
+                gun: "Perşembe",
+                acilis_saati: "09:00",
+                kapanis_saati: "18:00",
+                kapali: false,
+              },
+              {
+                gun: "Cuma",
+                acilis_saati: "09:00",
+                kapanis_saati: "18:00",
+                kapali: false,
+              },
+              {
+                gun: "Cumartesi",
+                acilis_saati: "10:00",
+                kapanis_saati: "14:00",
+                kapali: false,
+              },
+              {
+                gun: "Pazar",
+                acilis_saati: "00:00",
+                kapanis_saati: "00:00",
+                kapali: true,
+              },
+            ],
+          },
+          {
+            id: 2,
+            kapak_resmi_url: "/images/icons/firma-profil/icons/sube-resim.svg",
+            sube_adi: "Ankara Şube",
+            sube_adresi: "Çankaya Cad. No: 45 Kızılay/Ankara",
+            mail_adresi: "ankara@ayyildiz.com.tr",
+            telefon_numarasi: "+90 312 555 67 89",
+            calisma_saatleri: [
+              {
+                gun: "Pazartesi",
+                acilis_saati: "09:00",
+                kapanis_saati: "18:00",
+                kapali: false,
+              },
+              {
+                gun: "Salı",
+                acilis_saati: "09:00",
+                kapanis_saati: "18:00",
+                kapali: false,
+              },
+              {
+                gun: "Çarşamba",
+                acilis_saati: "09:00",
+                kapanis_saati: "18:00",
+                kapali: false,
+              },
+              {
+                gun: "Perşembe",
+                acilis_saati: "09:00",
+                kapanis_saati: "18:00",
+                kapali: false,
+              },
+              {
+                gun: "Cuma",
+                acilis_saati: "09:00",
+                kapanis_saati: "18:00",
+                kapali: false,
+              },
+              {
+                gun: "Cumartesi",
+                acilis_saati: "00:00",
+                kapanis_saati: "00:00",
+                kapali: true,
+              },
+              {
+                gun: "Pazar",
+                acilis_saati: "00:00",
+                kapanis_saati: "00:00",
+                kapali: true,
+              },
+            ],
+          },
+        ]
+      },
 
       kalite_belgeleri: [
         {

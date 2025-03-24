@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
 import Hero from "../../components/profil/Hero";
 import FirmaBilgiHero from "../../components/profil/FirmaBilgiHero";
@@ -39,6 +40,8 @@ const Profil = () => {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };
