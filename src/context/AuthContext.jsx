@@ -223,28 +223,80 @@ export const AuthProvider = ({ children }) => {
         ],
       },
 
-      referanslar: [
-        {
-          id: 1,
-          veren_firma_id: 2,
-          veren_firma_adi: "Mega Yapı A.Ş.",
-          referans_mesaji:
-            "Ayyıldız ile yaptığımız işbirliğinden çok memnun kaldık. Kaliteli ürünleri ve zamanında teslimat anlayışlarıyla projemize büyük katkı sağladılar.",
-          durum: "Onaylandı",
-          talep_tarihi: "2023-05-10T14:30:00",
-          islem_tarihi: "2023-05-12T10:15:00",
-        },
-        {
-          id: 2,
-          veren_firma_id: 3,
-          veren_firma_adi: "Yıldız İnşaat Ltd. Şti.",
-          referans_mesaji:
-            "Marmaray Projesi'nde Ayyıldız'ın tünel ekipmanlarını kullandık. Teknik destek ve ürün kalitesi açısından tam not alıyorlar.",
-          durum: "Onaylandı",
-          talep_tarihi: "2023-06-20T11:45:00",
-          islem_tarihi: "2023-06-21T09:30:00",
-        },
-      ],
+      referanslar: {
+        baslik: "Referanslarımız",
+        metin: "Ayyıldız olarak iş ortaklarımızla kurduğumuz güvenilir ilişkilerle sektörde fark yaratıyoruz. İşte referanslarımız:",
+        kategoriler: [
+          {
+            tip: "Bana Verilen Referanslar",
+            liste: [
+              {
+                id: 1,
+                veren_firma_id: 2,
+                veren_firma_adi: "Mega Yapı A.Ş.",
+                referans_mesaji:
+                  "Ayyıldız ile yaptığımız işbirliğinden çok memnun kaldık. Kaliteli ürünleri ve zamanında teslimat anlayışlarıyla projemize büyük katkı sağladılar.",
+                durum: "Onaylandı",
+                talep_tarihi: "2023-05-10T14:30:00",
+                islem_tarihi: "2023-05-12T10:15:00",
+              },
+              {
+                id: 2,
+                veren_firma_id: 3,
+                veren_firma_adi: "Yıldız İnşaat Ltd. Şti.",
+                referans_mesaji:
+                  "Marmaray Projesi'nde Ayyıldız'ın tünel ekipmanlarını kullandık. Teknik destek ve ürün kalitesi açısından tam not alıyorlar.",
+                durum: "Onaylandı",
+                talep_tarihi: "2023-06-20T11:45:00",
+                islem_tarihi: "2023-06-21T09:30:00",
+              },
+            ],
+          },
+          {
+            tip: "Benim Referans Olduğum Firmalar",
+            liste: [
+              {
+                id: 3,
+                alan_firma_id: 4,
+                alan_firma_adi: "Doğu İnşaat A.Ş.",
+                referans_mesaji:
+                  "Doğu İnşaat ile çalışmak bir zevkti. Projelerinde profesyonel bir yaklaşım sergilediler.",
+                durum: "Onaylandı",
+                talep_tarihi: "2023-07-15T09:00:00",
+                islem_tarihi: "2023-07-16T14:20:00",
+              },
+            ],
+          },
+          {
+            tip: "Benim Gönderdiğim Talepler",
+            liste: [
+              {
+                id: 4,
+                istenen_firma_id: 5,
+                istenen_firma_adi: "Batı Mühendislik Ltd. Şti.",
+                referans_mesaji: "Referans talebi gönderildi.",
+                durum: "Beklemede",
+                talep_tarihi: "2023-08-01T13:10:00",
+                islem_tarihi: null,
+              },
+            ],
+          },
+          {
+            tip: "Bana Gelen Referans Talepleri",
+            liste: [
+              {
+                id: 5,
+                talep_eden_firma_id: 6,
+                talep_eden_firma_adi: "Güney Yapı A.Ş.",
+                referans_mesaji: "Referans talebi bekliyor.",
+                durum: "Beklemede",
+                talep_tarihi: "2023-09-05T16:45:00",
+                islem_tarihi: null,
+              },
+            ],
+          },
+        ],
+      },
 
       kampanyalar: [
         {

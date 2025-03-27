@@ -5,6 +5,8 @@ import Hakkimizda from "./tabs/Hakkimizda";
 import UrunHizmetler from "./tabs/UrunHizmetler";
 import SubeIslemleri from "./tabs/SubeIslemleri";
 import KaliteBelgeIslemleri from "./tabs/KaliteBelgeIslemleri";
+import ReferansIslemleri from "./tabs/ReferansIslemleri";
+
 
 const BilgiRight = ({ tab }) => {
   return (
@@ -22,6 +24,7 @@ const BilgiRight = ({ tab }) => {
           {tab === 2 && <UrunHizmetler />}
           {tab === 3 && <SubeIslemleri />}
           {tab === 4 && <KaliteBelgeIslemleri />}
+          {tab === 5 && <ReferansIslemleri />}
         </motion.div>
       </AnimatePresence>
     </div>
