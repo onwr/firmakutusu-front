@@ -194,64 +194,127 @@ export const AuthProvider = ({ children }) => {
               },
             ],
           },
-        ]
+        ],
       },
 
-      kalite_belgeleri: [
-        {
-          id: 1,
-          belge_resmi_url: "/images/belgeler/iso9001.jpg",
-          belge_adi: "ISO 9001:2015",
-          sertifika_no: "ISO9001-2023-12345",
-          verilis_tarihi: "2023-01-15",
-          gecerlilik_bitis: "2026-01-14",
-        },
-        {
-          id: 2,
-          belge_resmi_url: "/images/belgeler/iso14001.jpg",
-          belge_adi: "ISO 14001:2015",
-          sertifika_no: "ISO14001-2023-67890",
-          verilis_tarihi: "2023-01-15",
-          gecerlilik_bitis: "2026-01-14",
-        },
-      ],
+      kalite_belgeleri: {
+        baslik: "Kalite Belgelerimiz",
+        metin:
+          "Ayyıldız olarak, kalite ve müşteri memnuniyeti odaklı çalışma prensibimizle ISO 9001 ve ISO 14001 belgelerine sahibiz.",
+        belgeler: [
+          {
+            id: 1,
+            belge_resmi_url:
+              "/images/icons/firma-profil/icons/kalite-sertifika.svg",
+            belge_adi: "ISO 9001:2015",
+            sertifika_no: "ISO9001-2023-12345",
+            verilis_tarihi: "2023-01-15",
+            gecerlilik_bitis: "2026-01-14",
+          },
+          {
+            id: 2,
+            belge_resmi_url:
+              "/images/icons/firma-profil/icons/kalite-sertifika.svg",
+            belge_adi: "ISO 14001:2015",
+            sertifika_no: "ISO14001-2023-67890",
+            verilis_tarihi: "2023-01-15",
+            gecerlilik_bitis: "2026-01-14",
+          },
+        ],
+      },
 
-      referanslar: [
-        {
-          id: 1,
-          veren_firma_id: 2,
-          veren_firma_adi: "Mega Yapı A.Ş.",
-          referans_mesaji:
-            "Ayyıldız ile yaptığımız işbirliğinden çok memnun kaldık. Kaliteli ürünleri ve zamanında teslimat anlayışlarıyla projemize büyük katkı sağladılar.",
-          durum: "Onaylandı",
-          talep_tarihi: "2023-05-10T14:30:00",
-          islem_tarihi: "2023-05-12T10:15:00",
-        },
-        {
-          id: 2,
-          veren_firma_id: 3,
-          veren_firma_adi: "Yıldız İnşaat Ltd. Şti.",
-          referans_mesaji:
-            "Marmaray Projesi'nde Ayyıldız'ın tünel ekipmanlarını kullandık. Teknik destek ve ürün kalitesi açısından tam not alıyorlar.",
-          durum: "Onaylandı",
-          talep_tarihi: "2023-06-20T11:45:00",
-          islem_tarihi: "2023-06-21T09:30:00",
-        },
-      ],
+      referanslar: {
+        baslik: "Referanslarımız",
+        metin: "Ayyıldız olarak iş ortaklarımızla kurduğumuz güvenilir ilişkilerle sektörde fark yaratıyoruz. İşte referanslarımız:",
+        kategoriler: [
+          {
+            tip: "Bana Verilen Referanslar",
+            liste: [
+              {
+                id: 1,
+                veren_firma_id: 2,
+                veren_firma_adi: "Mega Yapı A.Ş.",
+                referans_mesaji:
+                  "Ayyıldız ile yaptığımız işbirliğinden çok memnun kaldık. Kaliteli ürünleri ve zamanında teslimat anlayışlarıyla projemize büyük katkı sağladılar.",
+                durum: "Onaylandı",
+                talep_tarihi: "2023-05-10T14:30:00",
+                islem_tarihi: "2023-05-12T10:15:00",
+              },
+              {
+                id: 2,
+                veren_firma_id: 3,
+                veren_firma_adi: "Yıldız İnşaat Ltd. Şti.",
+                referans_mesaji:
+                  "Marmaray Projesi'nde Ayyıldız'ın tünel ekipmanlarını kullandık. Teknik destek ve ürün kalitesi açısından tam not alıyorlar.",
+                durum: "Onaylandı",
+                talep_tarihi: "2023-06-20T11:45:00",
+                islem_tarihi: "2023-06-21T09:30:00",
+              },
+            ],
+          },
+          {
+            tip: "Benim Referans Olduğum Firmalar",
+            liste: [
+              {
+                id: 3,
+                alan_firma_id: 4,
+                alan_firma_adi: "Doğu İnşaat A.Ş.",
+                referans_mesaji:
+                  "Doğu İnşaat ile çalışmak bir zevkti. Projelerinde profesyonel bir yaklaşım sergilediler.",
+                durum: "Onaylandı",
+                talep_tarihi: "2023-07-15T09:00:00",
+                islem_tarihi: "2023-07-16T14:20:00",
+              },
+            ],
+          },
+          {
+            tip: "Benim Gönderdiğim Talepler",
+            liste: [
+              {
+                id: 4,
+                istenen_firma_id: 5,
+                istenen_firma_adi: "Batı Mühendislik Ltd. Şti.",
+                referans_mesaji: "Referans talebi gönderildi.",
+                durum: "Beklemede",
+                talep_tarihi: "2023-08-01T13:10:00",
+                islem_tarihi: null,
+              },
+            ],
+          },
+          {
+            tip: "Bana Gelen Referans Talepleri",
+            liste: [
+              {
+                id: 5,
+                talep_eden_firma_id: 6,
+                talep_eden_firma_adi: "Güney Yapı A.Ş.",
+                referans_mesaji: "Referans talebi bekliyor.",
+                durum: "Beklemede",
+                talep_tarihi: "2023-09-05T16:45:00",
+                islem_tarihi: null,
+              },
+            ],
+          },
+        ],
+      },
 
-      kampanyalar: [
-        {
-          id: 1,
-          kapak_resmi_url: "/images/kampanyalar/yaz-kampanyasi.jpg",
-          aciklama:
-            "Yaz Kampanyası: Tüm tünel delme ekipmanlarında %15 indirim fırsatı. 30 Ağustos'a kadar geçerlidir.",
-          baslangic_tarihi: "2023-06-01",
-          bitis_tarihi: "2023-08-30",
-          acilis_katalogu: true,
-          katalog_pdf_url: "/documents/yaz-kampanyasi-2023.pdf",
-          aktif: true,
-        },
-      ],
+      kampanyalar: {
+        baslik: "Bi daha Evlendiren Düğün Kampanyalarımız =)",
+        metin: "Düğün, Toplantı veya düzenleyeceğiniz kongrelerde siz ve misafirlerinizi yüksek kalitede ağırlayabilme misyonu ile hizmet vermeyi amaç ediniyor ve sizi kendi davetinize davet ediyoruz.",
+        kampanyalar: [
+          {
+            id: 1,
+            kapak_resmi_url: "/images/icons/firma-profil/icons/kampanya-afis.svg",
+            aciklama:
+              "Yaz Kampanyası: Tüm tünel delme ekipmanlarında %15 indirim fırsatı. 30 Ağustos'a kadar geçerlidir.",
+            baslangic_tarihi: "2023-06-01",
+            bitis_tarihi: "2023-08-30",
+            acilis_katalogu: true,
+            katalog_pdf_url: "/documents/yaz-kampanyasi-2023.pdf",
+            aktif: true,
+          },
+        ]
+      },
 
       is_kariyer: [
         {
