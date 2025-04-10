@@ -22,9 +22,8 @@ const BilgiSidebar = ({ tab, setTab }) => {
             alt=""
           />
           <p
-            className={`font-semibold mt-1 text-sm lg:text-base ${
-              tab === 0 ? "text-[#120A8F]" : "text-[#01A4BD]"
-            } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
+            className={`font-semibold mt-1 text-sm lg:text-base ${tab === 0 ? "text-[#120A8F]" : "text-[#01A4BD]"
+              } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
           >
             Resmi Firma Bilgilerimiz
           </p>
@@ -45,9 +44,8 @@ const BilgiSidebar = ({ tab, setTab }) => {
             alt=""
           />
           <p
-            className={`font-semibold mt-1 text-sm lg:text-base ${
-              tab === 1 ? "text-[#120A8F]" : "text-[#01A4BD]"
-            } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
+            className={`font-semibold mt-1 text-sm lg:text-base ${tab === 1 ? "text-[#120A8F]" : "text-[#01A4BD]"
+              } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
           >
             Hakkımızda
           </p>
@@ -68,9 +66,8 @@ const BilgiSidebar = ({ tab, setTab }) => {
             alt=""
           />
           <p
-            className={`font-semibold mt-1 text-sm lg:text-base ${
-              tab === 2 ? "text-[#120A8F]" : "text-[#01A4BD]"
-            } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
+            className={`font-semibold mt-1 text-sm lg:text-base ${tab === 2 ? "text-[#120A8F]" : "text-[#01A4BD]"
+              } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
           >
             Ürün & Hizmetlerimiz
           </p>
@@ -91,9 +88,8 @@ const BilgiSidebar = ({ tab, setTab }) => {
             alt=""
           />
           <p
-            className={`font-semibold mt-1 text-sm lg:text-base ${
-              tab === 3 ? "text-[#120A8F]" : "text-[#01A4BD]"
-            } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
+            className={`font-semibold mt-1 text-sm lg:text-base ${tab === 3 ? "text-[#120A8F]" : "text-[#01A4BD]"
+              } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
           >
             Şubelerimiz
           </p>
@@ -114,9 +110,8 @@ const BilgiSidebar = ({ tab, setTab }) => {
             alt=""
           />
           <p
-            className={`font-semibold mt-1 text-sm lg:text-base ${
-              tab === 4 ? "text-[#120A8F]" : "text-[#01A4BD]"
-            } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
+            className={`font-semibold mt-1 text-sm lg:text-base ${tab === 4 ? "text-[#120A8F]" : "text-[#01A4BD]"
+              } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
           >
             Kalite Belgelerimiz
           </p>
@@ -137,9 +132,8 @@ const BilgiSidebar = ({ tab, setTab }) => {
             alt=""
           />
           <p
-            className={`font-semibold mt-1 text-sm lg:text-base ${
-              tab === 5 ? "text-[#120A8F]" : "text-[#01A4BD]"
-            } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
+            className={`font-semibold mt-1 text-sm lg:text-base ${tab === 5 ? "text-[#120A8F]" : "text-[#01A4BD]"
+              } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
           >
             Referanslarımız
           </p>
@@ -160,9 +154,8 @@ const BilgiSidebar = ({ tab, setTab }) => {
             alt=""
           />
           <p
-            className={`font-semibold mt-1 text-sm lg:text-base ${
-              tab === 6 ? "text-[#120A8F]" : "text-[#01A4BD]"
-            } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
+            className={`font-semibold mt-1 text-sm lg:text-base ${tab === 6 ? "text-[#120A8F]" : "text-[#01A4BD]"
+              } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
           >
             Kampanyalarımız
           </p>
@@ -183,9 +176,8 @@ const BilgiSidebar = ({ tab, setTab }) => {
             alt=""
           />
           <p
-            className={`font-semibold mt-1 text-sm lg:text-base ${
-              tab === 7 ? "text-[#120A8F]" : "text-[#01A4BD]"
-            } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
+            className={`font-semibold mt-1 text-sm lg:text-base ${tab === 7 ? "text-[#120A8F]" : "text-[#01A4BD]"
+              } group-hover:text-[#120A8F]/80 cursor-pointer duration-300`}
           >
             Bize Katılın | İş & Kariyer
           </p>
@@ -193,11 +185,11 @@ const BilgiSidebar = ({ tab, setTab }) => {
       </div>
 
       <div className="mt-5">
-        <Galeri />
+        <Galeri setTab={setTab} />
       </div>
 
       <div className="mt-5">
-        <Video />
+        <Video setTab={setTab} />
       </div>
     </div>
   );

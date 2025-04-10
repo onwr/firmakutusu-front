@@ -7,13 +7,11 @@ const KampanyaIslemleri = () => {
     const { isLogin, user } = useAuth();
     const { firma } = user;
 
-    // State for main kampanyalar section
     const [formData, setFormData] = useState({
         baslik: firma.kampanyalar?.baslik || "",
         metin: firma.kampanyalar?.metin || "",
     });
 
-    // State for campaigns list
     const [kampanyaList, setKampanyaList] = useState(firma.kampanyalar?.kampanyalar || []);
 
     const [newKampanya, setNewKampanya] = useState({
@@ -26,7 +24,6 @@ const KampanyaIslemleri = () => {
         aktif: true
     });
 
-    // Initialize data from context when component mounts
     useEffect(() => {
         if (firma && firma.kampanyalar) {
             setFormData({
@@ -37,7 +34,6 @@ const KampanyaIslemleri = () => {
         }
     }, [firma]);
 
-    // Handle input changes for main section
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
@@ -46,7 +42,6 @@ const KampanyaIslemleri = () => {
         }));
     };
 
-    // Handle input changes for new campaign
     const handleNewKampanyaChange = (e) => {
         const { name, value, type, checked } = e.target;
         setNewKampanya((prev) => ({
@@ -55,24 +50,20 @@ const KampanyaIslemleri = () => {
         }));
     };
 
-    // Handle input changes for existing campaigns
     const handleKampanyaChange = (id, field, value) => {
         setKampanyaList(prev => prev.map(kampanya =>
             kampanya.id === id ? { ...kampanya, [field]: value } : kampanya
         ));
     };
 
-    // Handle checkbox change for existing campaigns
     const handleCheckboxChange = (id, checked) => {
         setKampanyaList(prev => prev.map(kampanya =>
             kampanya.id === id ? { ...kampanya, acilis_katalogu: checked } : kampanya
         ));
     };
 
-    // Add new campaign
     const handleAddKampanya = () => {
         setKampanyaList(prev => [...prev, newKampanya]);
-        // Reset new campaign form
         setNewKampanya({
             id: newKampanya.id + 1,
             kapak_resmi_url: "/images/icons/firma-profil/icons/kampanya-afis.svg",
@@ -84,12 +75,10 @@ const KampanyaIslemleri = () => {
         });
     };
 
-    // Delete campaign
     const handleDeleteKampanya = (id) => {
         setKampanyaList(prev => prev.filter(kampanya => kampanya.id !== id));
     };
 
-    // Save campaign changes
     const handleSaveKampanya = (id) => {
         console.log("Saving kampanya changes for ID:", id);
         alert(`Kampanya ${id} başarıyla güncellendi!`);

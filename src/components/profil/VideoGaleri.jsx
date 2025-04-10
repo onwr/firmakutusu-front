@@ -1,9 +1,9 @@
 import React from "react";
 
-const VGaleri = () => {
+const VGaleri = ({ setTab }) => {
   return (
     <div className="px-8 h-fit montserrat py-10 montserrat border border-[#A2ACC7] outline-none rounded-xl flex flex-col gap-1 cursor-pointer mt-5">
-      <div className="flex items-center gap-2">
+      <div onClick={() => setTab(9)} className="flex items-center gap-2">
         <img src="/images/icons/firma-profil/icons/video.svg" />
         <p className="text-[#01A4BD] font-semibold">Video Galerimiz</p>
       </div>

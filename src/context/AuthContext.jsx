@@ -253,7 +253,7 @@ export const AuthProvider = ({ children }) => {
             ],
           },
           {
-            tip: "Benim Referans Olduğum Firmalar",
+            tip: 2,
             liste: [
               {
                 id: 3,
@@ -316,73 +316,75 @@ export const AuthProvider = ({ children }) => {
         ]
       },
 
-      is_kariyer: [
-        {
-          id: 1,
-          baslik: "Makine Mühendisi Aranıyor",
-          metin:
-            "Firmamızın AR-GE departmanında çalışacak, tünel ekipmanları konusunda deneyimli Makine Mühendisi arıyoruz.",
-          email_adresi: "kariyer@ayyildiz.com.tr",
-          aydinlatma_metni:
-            "Başvurunuz, 6698 sayılı KVKK kapsamında değerlendirilecektir.",
-          aktif: true,
-          sorular: [
-            { id: 1, soru_metni: "Adınız", sira: 1, sabit: true },
-            { id: 2, soru_metni: "Soyadınız", sira: 2, sabit: true },
-            { id: 3, soru_metni: "Telefon numaranız", sira: 3, sabit: true },
-            { id: 4, soru_metni: "E-Mail adresiniz", sira: 4, sabit: true },
-            {
-              id: 5,
-              soru_metni: "Mezun olduğunuz üniversite",
-              sira: 5,
-              sabit: false,
-            },
-            {
-              id: 6,
-              soru_metni: "Toplam iş deneyiminiz (yıl)",
-              sira: 6,
-              sabit: false,
-            },
-            {
-              id: 7,
-              soru_metni: "Yabancı dil bilginiz",
-              sira: 7,
-              sabit: false,
-            },
-          ],
-        },
-      ],
+      is_kariyer: {
+        baslik: "Kariyer Başlık",
+        metin: "Kariyer Metin",
+        email_adresi: "email@gmail.com",
+        aydinlatma_metni:
+          "Başvurunuz, 6698 sayılı KVKK kapsamında değerlendirilecektir.",
+        sorular: [
+          { id: 1, soru_metni: "Adınız", sira: 1, sabit: true },
+          { id: 2, soru_metni: "Soyadınız", sira: 2, sabit: true },
+          { id: 3, soru_metni: "Telefon numaranız", sira: 3, sabit: true },
+          { id: 4, soru_metni: "E-Mail adresiniz", sira: 4, sabit: true },
+          {
+            id: 5,
+            soru_metni: "Mezun olduğunuz üniversite",
+            sira: 5,
+            sabit: false,
+          },
+          {
+            id: 6,
+            soru_metni: "Toplam iş deneyiminiz (yıl)",
+            sira: 6,
+            sabit: false,
+          },
+          {
+            id: 7,
+            soru_metni: "Yabancı dil bilginiz",
+            sira: 7,
+            sabit: false,
+          },
+          {
+            id: 8,
+            soru_metni: "Boş kalsın",
+            sira: 8,
+            sabit: false,
+          },
+          {
+            id: 9,
+            soru_metni: "Boş Kalsın",
+            sira: 9,
+            sabit: false,
+          },
+          {
+            id: 10,
+            soru_metni: "Boş Kalsın",
+            sira: 10,
+            sabit: false,
+          },
+        ],
+      },
 
-      resim_galerisi: [
-        {
-          id: 1,
-          resim_url: "/images/galeri/urun1.jpg",
-          baslik: "Tünel Delme Makinası",
-        },
-        {
-          id: 2,
-          resim_url: "/images/galeri/urun2.jpg",
-          baslik: "Segment Montaj Ekipmanı",
-        },
-        {
-          id: 3,
-          resim_url: "/images/galeri/fabrika.jpg",
-          baslik: "Üretim Tesisimiz",
-        },
-      ],
+      resim_galerisi: {
+        baslik: "Bize Katılmak İstermisiniz",
+        resimler: [
+          {
+            id: 1,
+            resim_url: "/images/videobaslik.png",
+          },
+        ]
+      },
 
-      video_galerisi: [
-        {
-          id: 1,
-          video_url: "/videos/tanitim.mp4",
-          baslik: "Ayyıldız Tanıtım Filmi",
-        },
-        {
-          id: 2,
-          video_url: "/videos/tds2000.mp4",
-          baslik: "TDS-2000 Tünel Delme Sistemi",
-        },
-      ],
+      video_galerisi: {
+        baslik: "Videolarımız",
+        videolar: [
+          {
+            id: 1,
+            video_url: "/video.mp4",
+          },
+        ]
+      },
 
       faaliyet_alanlari: [
         {

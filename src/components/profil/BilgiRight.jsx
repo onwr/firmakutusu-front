@@ -7,6 +7,10 @@ import SubeIslemleri from "./tabs/SubeIslemleri";
 import KaliteBelgeIslemleri from "./tabs/KaliteBelgeIslemleri";
 import ReferansIslemleri from "./tabs/ReferansIslemleri";
 import KampanyaIslemleri from "./tabs/KampanyaIslemleri";
+import KariyerIslemleri from "./tabs/KariyerIslemleri";
+import GaleriIslemleri from "./tabs/GaleriIslemleri";
+import VideoIslem from "./tabs/VideoIslem";
+
 
 
 const BilgiRight = ({ tab }) => {
@@ -27,6 +31,9 @@ const BilgiRight = ({ tab }) => {
           {tab === 4 && <KaliteBelgeIslemleri />}
           {tab === 5 && <ReferansIslemleri />}
           {tab === 6 && <KampanyaIslemleri />}
+          {tab === 7 && <KariyerIslemleri />}
+          {tab === 8 && <GaleriIslemleri />}
+          {tab === 9 && <VideoIslem />}
         </motion.div>
       </AnimatePresence>
     </div>
